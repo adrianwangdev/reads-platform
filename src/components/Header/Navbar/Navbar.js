@@ -1,9 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {
-  handleNavSearchFocus,
-  handleNavSearchBlur
-} from 'store/actions/navSearch'
+import { actions } from './store'
 
 /* Images */
 import { ReactComponent as PenLogo } from 'assets/images/icons/pen.svg'
@@ -51,13 +48,13 @@ const Navbar = ({
 
 const mapStateToProps = state => {
   return {
-    isFocused: state.searchIsFocused
+    isFocused: state.navbar.searchIsFocused
   }
 }
 
 const mapDispatchToProps = {
-  handleNavSearchFocus,
-  handleNavSearchBlur
+  handleNavSearchFocus: actions.handleNavSearchFocus,
+  handleNavSearchBlur: actions.handleNavSearchBlur
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

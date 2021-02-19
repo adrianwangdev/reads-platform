@@ -1,13 +1,10 @@
-import {
-  SEARCH_FOCUS,
-  SEARCH_BLUR
-} from '../types'
+import * as types from './actionTypes'
 
 export const handleNavSearchFocus = () => ({
-  type: SEARCH_FOCUS,
+  type: types.SEARCH_FOCUS,
   payload: true
 })
 export const handleNavSearchBlur = () => ({
-  type: SEARCH_BLUR,
+  type: types.SEARCH_BLUR,
   payload: false
 })

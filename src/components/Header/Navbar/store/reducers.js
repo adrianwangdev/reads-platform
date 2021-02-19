@@ -1,21 +1,18 @@
-import {
-  SEARCH_FOCUS,
-  SEARCH_BLUR
-} from '../types'
+import * as types from './actionTypes'
 
 const defaultStata = {
   searchIsFocused: false
 }
 
-const reducer = (state = defaultStata, action) => {
+const reducers = (state = defaultStata, action) => {
   switch (action.type) {
-    case SEARCH_FOCUS:
+    case types.SEARCH_FOCUS:
       return {
         ...defaultStata,
         searchIsFocused: action.payload
       }
-    
-    case SEARCH_BLUR:
+
+    case types.SEARCH_BLUR:
       return {
         ...defaultStata,
         searchIsFocused: action.payload
@@ -25,4 +22,4 @@ const reducer = (state = defaultStata, action) => {
   }
 }
 
-export default reducer
+export default reducers
