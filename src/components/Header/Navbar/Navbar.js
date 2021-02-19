@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { actions } from './store'
 
+/* Components */
+import SearchRecommend from './SearchRecommend/SearchRecommend'
+
 /* Images */
 import { ReactComponent as PenLogo } from 'assets/images/icons/pen.svg'
 import { ReactComponent as SearchLogo } from 'assets/images/icons/search.svg'
@@ -32,6 +35,7 @@ const Navbar = ({
         <SearchLogo
           className={isFocused ? 'focused' : ''}
         />
+        { isFocused ? <SearchRecommend /> : null }
       </SearchWrapper>
     </div>
     <div>
