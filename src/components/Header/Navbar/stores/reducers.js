@@ -1,17 +1,17 @@
 import * as types from './actionTypes'
 
 const defaultStata = {
-  searchIsFocused: false
+  searchIsFocused: false,
+  recommendList: []
 }
 
 const reducers = (state = defaultStata, action) => {
   switch (action.type) {
     case types.SEARCH_FOCUS:
       return {
-        ...defaultStata,
-        searchIsFocused: action.payload
+        searchIsFocused: action.payload.searchIsFocused,
+        recommendList: action.payload.recommendList
       }
-
     case types.SEARCH_BLUR:
       return {
         ...defaultStata,

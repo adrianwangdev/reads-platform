@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { actions } from './store'
+import { actions } from './stores'
 
 /* Components */
 import SearchRecommend from './SearchRecommend/SearchRecommend'
@@ -20,6 +20,7 @@ import {
 
 const Navbar = ({
   isFocused,
+  recommendList,
   handleNavSearchFocus,
   handleNavSearchBlur
 }) => (
@@ -35,7 +36,7 @@ const Navbar = ({
         <SearchLogo
           className={isFocused ? 'focused' : ''}
         />
-        { isFocused ? <SearchRecommend /> : null }
+        {isFocused ? <SearchRecommend recommendList={recommendList} /> : null }
       </SearchWrapper>
     </div>
     <div>
@@ -50,11 +51,10 @@ const Navbar = ({
   </NavbarWrapper>
 )
 
-const mapStateToProps = state => {
-  return {
-    isFocused: state.navbar.searchIsFocused
-  }
-}
+const mapStateToProps = state => ({
+  isFocused: state.navbar.searchIsFocused,
+  recommendList: state.navbar.recommendList
+})
 
 const mapDispatchToProps = {
   handleNavSearchFocus: actions.handleNavSearchFocus,

@@ -9,8 +9,14 @@ import {
   RecommendItem
 } from './SearchRecommend.styled'
 
-const SearchRecommend = () => {
+const SearchRecommend = ({ recommendList }) => {
 
+  const renderList = (list) => (
+    list.map((item, index) => (
+      <RecommendItem key={index}>{item}</RecommendItem>
+    ))
+  )
+  
   return (
     <RecommendWrapper>
 
@@ -20,16 +26,7 @@ const SearchRecommend = () => {
       </RecommendTitle>
 
       <RecommendList>
-        <RecommendItem>React</RecommendItem>
-        <RecommendItem>投資</RecommendItem>
-        <RecommendItem>生活</RecommendItem>
-        <RecommendItem>Vue</RecommendItem>
-        <RecommendItem>軟體業</RecommendItem>
-        <RecommendItem>Docker</RecommendItem>
-        <RecommendItem>前端</RecommendItem>
-        <RecommendItem>美妝</RecommendItem>
-        <RecommendItem>Youtuber</RecommendItem>
-        <RecommendItem>保險業</RecommendItem>
+        { renderList(recommendList) }
       </RecommendList>
 
     </RecommendWrapper>
