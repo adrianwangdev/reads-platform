@@ -1,26 +1,9 @@
 import * as types from './actionTypes'
-import axios from 'axios'
 
-const changeState = data => ({
+export const handleNavSearchFocus = () => ({
   type: types.SEARCH_FOCUS,
-  payload: {
-    searchIsFocused: true,
-    recommendList: data
-  }
+  payload: true
 })
-
-export const handleNavSearchFocus = () => {
-  return (dispatch) => {
-    axios.get('/api/recommendList.json')
-      .then(response => {
-        const data = response.data
-        dispatch(changeState(data.data))
-      })
-      .catch(error => {
-        console.error(error)
-      })
-  }
-}
 
 export const handleNavSearchBlur = () => ({
   type: types.SEARCH_BLUR,

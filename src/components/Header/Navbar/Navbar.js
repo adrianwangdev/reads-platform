@@ -20,10 +20,12 @@ import {
 
 const Navbar = ({
   isFocused,
-  recommendList,
+  isMouseEnter,
   handleNavSearchFocus,
   handleNavSearchBlur
-}) => (
+}) => {
+
+  return (
   <NavbarWrapper>
     <div>
       <NavItem active>首頁</NavItem>
@@ -36,7 +38,7 @@ const Navbar = ({
         <SearchLogo
           className={isFocused ? 'focused' : ''}
         />
-        {isFocused ? <SearchRecommend recommendList={recommendList} /> : null }
+        {isFocused || isMouseEnter ? (<SearchRecommend />) : null}
       </SearchWrapper>
     </div>
     <div>
@@ -49,11 +51,11 @@ const Navbar = ({
       </Button>
     </div>
   </NavbarWrapper>
-)
+)}
 
 const mapStateToProps = state => ({
   isFocused: state.navbar.searchIsFocused,
-  recommendList: state.navbar.recommendList
+  isMouseEnter: state.recommend.isMouseEnter
 })
 
 const mapDispatchToProps = {

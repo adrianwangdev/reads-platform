@@ -6,7 +6,7 @@ const RecommendWrapper = styled.div`
   left: 0;
   padding: 2rem;
   border-radius: .8rem;
-  width: 24rem;
+  width: 26rem;
   font-size: 1.4rem;
   color: ${props => props.theme.colors.text.light};
   box-shadow: 0 0 .8rem rgba(0, 0, 0, .16);
