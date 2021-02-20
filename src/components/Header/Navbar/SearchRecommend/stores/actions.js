@@ -1,6 +1,5 @@
 import * as types from './actionTypes'
 import axios from 'axios'
-import { useEffect } from 'react'
 
 const updateList = data => ({
   type: types.GET_RECOMMEND_LIST,
@@ -32,3 +31,15 @@ export const handleListMouseLeave = () => ({
   type: types.LIST_MOUSE_LEAVE,
   payload: false
 })
+
+export const handleListChangePage = (page, totalPage) => {
+  return page < totalPage
+    ? {
+        type: types.LIST_CHANGE_PAGE,
+        payload: page + 1
+      }
+    : {
+        type: types.LIST_CHANGE_PAGE,
+        payload: 1
+      }
+}

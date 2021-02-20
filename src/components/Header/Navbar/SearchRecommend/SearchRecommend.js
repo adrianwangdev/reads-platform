@@ -14,12 +14,14 @@ import {
 const SearchRecommend = ({
   recommendList,
   page,
+  totalPage,
   getRecommendList,
   handleListMouseEnter,
-  handleListMouseLeave
+  handleListMouseLeave,
+  handleListChangePage
 }) => {
 
-  useEffect(getRecommendList, [])
+  useEffect(getRecommendList, [getRecommendList, page])
 
   const renderList = (list, page) => {
     const pageList = []
@@ -39,29 +41,32 @@ const SearchRecommend = ({
       onMouseEnter={handleListMouseEnter}
       onMouseLeave={handleListMouseLeave}
     >
-
       <RecommendTitle>
         <p>熱門推薦</p>
-        <RecommendSwitch>換一批</RecommendSwitch>
+        <RecommendSwitch
+          onClick={() => handleListChangePage(page, totalPage)}
+        >
+          換一批
+        </RecommendSwitch>
       </RecommendTitle>
-
       <RecommendList>
         {renderList(recommendList, page) }
       </RecommendList>
-
     </RecommendWrapper>
   )
 }
 
 const mapStateToProps = state => ({
   recommendList: state.recommend.recommendList,
-  page: state.recommend.page
+  page: state.recommend.page,
+  totalPage: state.recommend.totalPage
 })
 
 const mapDispatchToProps = {
   getRecommendList: actions.getRecommendList,
   handleListMouseEnter: actions.handleListMouseEnter,
-  handleListMouseLeave: actions.handleListMouseLeave
+  handleListMouseLeave: actions.handleListMouseLeave,
+  handleListChangePage: actions.handleListChangePage
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchRecommend)

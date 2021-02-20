@@ -15,6 +15,11 @@ const reducers = (state = defaultState, action) => {
         recommendList: action.payload.recommendList,
         totalPage: action.payload.totalPage
       }
+    case types.LIST_CHANGE_PAGE:
+      return {
+        ...state,
+        page: action.payload
+      }
     case types.LIST_MOUSE_ENTER:
       return {
         ...state,
