@@ -6,8 +6,8 @@ import { actions } from './stores'
 import SearchRecommend from './SearchRecommend/SearchRecommend'
 
 /* Images */
-import { ReactComponent as PenLogo } from 'assets/images/icons/pen.svg'
-import { ReactComponent as SearchLogo } from 'assets/images/icons/search.svg'
+import { ReactComponent as PenIcon } from 'assets/images/icons/pen.svg'
+import { ReactComponent as SearchIcon } from 'assets/images/icons/search.svg'
 
 /* Styles */
 import {
@@ -35,7 +35,7 @@ const Navbar = ({
           onFocus={handleNavSearchFocus}
           onBlur={handleNavSearchBlur}
         />
-        <SearchLogo
+        <SearchIcon
           className={isFocused ? 'focused' : ''}
         />
         {isFocused || isMouseEnter ? (<SearchRecommend />) : null}
@@ -46,7 +46,7 @@ const Navbar = ({
       <NavItem colorLight>登入</NavItem>
       <Button>註冊</Button>
       <Button CTA>
-        <PenLogo />
+        <PenIcon />
         寫文章
       </Button>
     </div>

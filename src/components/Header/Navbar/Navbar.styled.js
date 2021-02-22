@@ -37,7 +37,7 @@ const NavItem = styled.div`
 const SearchWrapper = styled.div`
   margin-left: 1.2rem;
 
-  svg {
+  & > svg {
     position: absolute;
     top: 50%;
     right: .6rem;

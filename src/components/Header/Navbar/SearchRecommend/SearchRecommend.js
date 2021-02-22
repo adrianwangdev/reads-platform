@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import { actions } from './stores'
 
@@ -11,6 +11,9 @@ import {
   RecommendItem
 } from './SearchRecommend.styled'
 
+/* Images */
+import { ReactComponent as RefreshIcon } from 'assets/images/icons/refresh.svg'
+
 const SearchRecommend = ({
   recommendList,
   page,
@@ -21,7 +24,9 @@ const SearchRecommend = ({
   handleListChangePage
 }) => {
 
-  useEffect(getRecommendList, [getRecommendList, page])
+  const spinIconRef = useRef()
+
+  useEffect(getRecommendList, [])
 
   const renderList = (list, page) => {
     const pageList = []
@@ -44,8 +49,9 @@ const SearchRecommend = ({
       <RecommendTitle>
         <p>熱門推薦</p>
         <RecommendSwitch
-          onClick={() => handleListChangePage(page, totalPage)}
+          onClick={() => handleListChangePage(page, totalPage, spinIconRef.current)}
         >
+          <RefreshIcon ref={spinIconRef} />
           換一批
         </RecommendSwitch>
       </RecommendTitle>

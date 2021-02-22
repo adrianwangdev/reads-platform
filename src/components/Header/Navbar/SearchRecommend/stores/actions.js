@@ -32,7 +32,13 @@ export const handleListMouseLeave = () => ({
   payload: false
 })
 
-export const handleListChangePage = (page, totalPage) => {
+export const handleListChangePage = (page, totalPage, spinIcon) => {
+  let originAngle = spinIcon.style.transform.replace(/[^0-9]/ig, '')
+  originAngle
+    ? originAngle = parseInt(originAngle, 10)
+    : originAngle = 0
+  spinIcon.style.transform = `rotate(${originAngle + 180}deg)`
+
   return page < totalPage
     ? {
         type: types.LIST_CHANGE_PAGE,

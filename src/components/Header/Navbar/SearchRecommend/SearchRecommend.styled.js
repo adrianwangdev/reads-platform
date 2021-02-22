@@ -19,12 +19,28 @@ const RecommendTitle = styled.div`
 `
 
 const RecommendSwitch = styled.span`
+  display: flex;
+  align-items: center;
   font-size: 1.3rem;
   transition: all .2s;
   cursor: pointer;
 
+  > svg {
+    padding: .4rem;
+    transition: all .2s;
+    transform: rotate(0deg);
+
+    path {
+      transition: all .2s;
+    }
+  }
+
   &:hover {
     color: ${props => props.theme.colors.text.dark};
+
+    > svg path {
+      fill: ${props => props.theme.colors.text.dark};
+    }
   }
 `
 
