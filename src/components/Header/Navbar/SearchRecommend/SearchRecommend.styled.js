@@ -9,7 +9,9 @@ const RecommendWrapper = styled.div`
   width: 26rem;
   font-size: 1.4rem;
   color: ${props => props.theme.colors.text.light};
+  background: ${props => props.theme.colors.basic.white};
   box-shadow: 0 0 .8rem rgba(0, 0, 0, .16);
+  z-index: 1;
 `
 
 const RecommendTitle = styled.div`
