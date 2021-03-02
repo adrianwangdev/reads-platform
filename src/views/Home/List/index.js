@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 /* Styles */
 import {
@@ -12,32 +13,33 @@ import {
   CommentAmount
 } from './List.styled'
 
-const List = () => (
-  <ListWrapper>
-    <ListItem>
-      <ListTitle>最好的報復</ListTitle>
-      <ListDescription>
-        1 朋友甲：45岁，人长得漂亮，看起来像35岁。在小镇上开了一家烟火铺，一月能挣七八千。她老公是镇中学一名教师，工资四千多，顾...
-      </ListDescription>
+const List = ({articleList}) => {
+
+  const dateGenerator = (timestamp) => (
+    new Date(timestamp).toISOString().substr(0, 10)
+  )
+
+  const renderTopicList = () => articleList.map(item => (
+    <ListItem key={item.id}>
+      <ListTitle>{item.title}</ListTitle>
+      <ListDescription>{item.description}</ListDescription>
       <ListDetail>
-        <CreateDate>2021-02-28</CreateDate>
-        <LikeAmount>410</LikeAmount>
-        <CommentAmount>98</CommentAmount>
+        <CreateDate>{dateGenerator(item.createTime)}</CreateDate>
+        <LikeAmount>{item.like}</LikeAmount>
+        <CommentAmount>{item.comment}</CommentAmount>
       </ListDetail>
     </ListItem>
+  ))
 
-    <ListItem>
-      <ListTitle>最好的報復</ListTitle>
-      <ListDescription>
-        1 朋友甲：45岁，人长得漂亮，看起来像35岁。在小镇上开了一家烟火铺，一月能挣七八千。她老公是镇中学一名教师，工资四千多，顾...
-      </ListDescription>
-      <ListDetail>
-        <CreateDate>2021-02-28</CreateDate>
-        <LikeAmount>410</LikeAmount>
-        <CommentAmount>98</CommentAmount>
-      </ListDetail>
-    </ListItem>
-  </ListWrapper>
-)
+  return (
+    <ListWrapper>
+      {renderTopicList()}
+    </ListWrapper>
+  )
+}
 
-export default List
+const mapStateToProps = state => ({
+  articleList: state.homeList.articleList
+})
+
+export default connect(mapStateToProps, null)(List)

@@ -23,11 +23,11 @@ const Home = () => (
         <Banner>
           <img src={BannerImage} alt="banner"/>
         </Banner>
-        <Topic />
         <List />
       </Grid>
       <Grid item xs={4}>
         <Recommend />
+        <Topic />
         <Writer />
       </Grid>
     </Grid>

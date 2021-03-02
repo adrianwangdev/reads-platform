@@ -15,5 +15,4 @@ ReactDOM.render(
     <GlobalStyle />
   </ThemeProvider>,
   document.getElementById('root')
-  
 )

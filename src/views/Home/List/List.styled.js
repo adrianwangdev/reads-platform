@@ -6,7 +6,7 @@ const ListWrapper = styled.div`
 `
 
 const ListItem = styled.div`
-  padding: 2.4rem 0;
+  padding: 2.4rem .8rem;
   border-bottom: 1px solid ${props => props.theme.colors.border};
   transition: all .3s;
   cursor: pointer;

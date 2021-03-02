@@ -1,7 +1,14 @@
 import React from 'react'
 
+/* Styles */
+import {
+  WriterWrapper
+} from './writer.styled'
+
 const Writer = () => (
-  <div>Writer</div>
+  <WriterWrapper>
+    Writer
+  </WriterWrapper>
 )
 
 export default Writer

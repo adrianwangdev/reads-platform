@@ -17,7 +17,17 @@ const theme = {
     background: {
       search: '#EEE'
     },
-    border: '#E7E7E7'
+    border: '#E7E7E7',
+    recommend: {
+      dailyText: '#6184BA',
+      dailyBackground: '#D1E1EF',
+      memberText: '#FFEED4',
+      memberBackground: '#F5B04B',
+      selectText: '#BF903B',
+      selectBackground: '#F4E0BD',
+      publicationText: '#559088',
+      publicationBackground: '#C1E4DE'
+    }
   }
 }
 
