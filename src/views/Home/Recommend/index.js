@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
 /* Styles */
 import {
@@ -22,8 +21,4 @@ const Recommend = ({ recommendList }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  recommendList: state.homeRecommend.recommendList
-})
-
-export default connect(mapStateToProps, null)(Recommend)
+export default Recommend

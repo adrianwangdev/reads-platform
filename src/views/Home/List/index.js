@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
 /* Styles */
 import {
@@ -13,11 +12,9 @@ import {
   CommentAmount
 } from './List.styled'
 
-const List = ({articleList}) => {
+const List = ({ articleList }) => {
 
-  const dateGenerator = (timestamp) => (
-    new Date(timestamp).toISOString().substr(0, 10)
-  )
+  const dateGenerator = timestamp => timestamp.substr(0, 10)
 
   const renderTopicList = () => articleList.map(item => (
     <ListItem key={item.id}>
@@ -38,8 +35,4 @@ const List = ({articleList}) => {
   )
 }
 
-const mapStateToProps = state => ({
-  articleList: state.homeList.articleList
-})
-
-export default connect(mapStateToProps, null)(List)
+export default List

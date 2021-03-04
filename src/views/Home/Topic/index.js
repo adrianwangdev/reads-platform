@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
 /* Styles */
 import {
@@ -22,8 +21,4 @@ const Topic = ({ topicList }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  topicList: state.homeTopic.topicList
-})
-
-export default connect(mapStateToProps, null)(Topic)
+export default Topic
