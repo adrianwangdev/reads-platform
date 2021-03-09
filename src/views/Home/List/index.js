@@ -1,4 +1,6 @@
 import React from 'react'
+import { actions } from './stores'
+import { connect } from 'react-redux'
 
 /* Styles */
 import {
@@ -9,14 +11,19 @@ import {
   ListDetail,
   CreateDate,
   LikeAmount,
-  CommentAmount
+  CommentAmount,
+  MoreButton
 } from './List.styled'
 
-const List = ({ articleList }) => {
+const List = ({
+  articleList,
+  moreArticleLists,
+  getMoreLists
+}) => {
 
   const dateGenerator = timestamp => timestamp.substr(0, 10)
 
-  const renderTopicList = () => articleList.map(item => (
+  const renderTopicList = list => list.map(item => (
     <ListItem key={item.id}>
       <ListTitle>{item.title}</ListTitle>
       <ListDescription>{item.description}</ListDescription>
@@ -30,9 +37,19 @@ const List = ({ articleList }) => {
 
   return (
     <ListWrapper>
-      {renderTopicList()}
+      { renderTopicList(articleList) }
+      { moreArticleLists.length > 0 && renderTopicList(moreArticleLists) }
+      <MoreButton onClick={getMoreLists}>載入所有精選文章</MoreButton>
     </ListWrapper>
   )
 }
 
-export default List
+const mapStateToProps = state => ({
+  moreArticleLists: state.homeMoreLists.moreArticleLists
+})
+
+const mapDispatchToProps = {
+  getMoreLists: actions.getMoreLists
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(List)

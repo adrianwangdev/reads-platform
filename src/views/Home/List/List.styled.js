@@ -55,6 +55,23 @@ const CommentAmount = styled.span`
   }
 `
 
+const MoreButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 4.8rem;
+  margin-top: 2.4rem;
+  border-radius: 2.4rem;
+  color: ${props => props.theme.colors.text.dark};
+  background: ${props => props.theme.colors.basic.light};
+  transition: all .2s;
+  cursor: pointer;
+
+  &:hover {
+    background: ${props => props.theme.colors.background.search};
+  }
+`
+
 export {
   ListWrapper,
   ListItem,
@@ -63,5 +80,6 @@ export {
   ListDetail,
   CreateDate,
   LikeAmount,
-  CommentAmount
+  CommentAmount,
+  MoreButton
 }

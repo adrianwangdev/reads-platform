@@ -55,7 +55,7 @@
       {
         "id": 2,
         "title": "需求管理規範",
-        "description": "MOMO雲敏捷項目管理，融合了敏捷、DevOps思想，打通了整個從需求、研發、測試、運維、運營的端到端敏捷。在實踐中通過運維自動化，將Scrum敏捷團隊開發的產品快速上線，並通過及時的運營，反饋給敏捷團隊進行方向調整。",
+        "description": "MOMO 雲敏捷項目管理，融合了敏捷、DevOps 思想，打通了整個從需求、研發、測試、運維、運營的端到端敏捷。在實踐中通過運維自動化，將 Scrum 敏捷團隊開發的產品快速上線，並通過及時的運營，反饋給敏捷團隊進行方向調整。",
         "createTime": "2021-02-019T13:31:09.429Z",
         "like": 64,
         "comment": 5
@@ -79,7 +79,7 @@
       {
         "id": 5,
         "title": "50 歲重拾文學夢，6個月成為簽約作者",
-        "description": "50歲是半百之人，人生已走過一半。50歲，有的人生，星辰隕落，繁華落盡已結束。有的人生，枯枝煥發，風華正茂剛開始。",
+        "description": "50 歲是半百之人，人生已走過一半。50 歲，有的人生，星辰隕落，繁華落盡已結束。有的人生，枯枝煥發，風華正茂剛開始。",
         "createTime": "2021-02-07T13:28:38.741Z",
         "like": 291,
         "comment": 40
@@ -107,6 +107,37 @@
         "category": "publication"
       }
     ],
-    "writerList": []
+    "writerList": [
+      {
+        "id": 1,
+        "name": "張艾凌",
+        "articleAmount": 143,
+        "likeAmount": 583948
+      },
+      {
+        "id": 2,
+        "name": "息娟",
+        "articleAmount": 77,
+        "likeAmount": 497927
+      },
+      {
+        "id": 3,
+        "name": "丁默",
+        "articleAmount": 98,
+        "likeAmount": 953720
+      },
+      {
+        "id": 4,
+        "name": "顧蔓",
+        "articleAmount": 204,
+        "likeAmount": 1042374
+      },
+      {
+        "id": 5,
+        "name": "凌淑紛",
+        "articleAmount": 281,
+        "likeAmount": 248973
+      }
+    ]
   }
 }
