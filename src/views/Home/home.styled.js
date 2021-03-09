@@ -3,7 +3,6 @@ import { Container } from '@material-ui/core'
 
 const HomeWrapper = styled(Container)`
   padding-top: 3.2rem;
-  border: 1px solid red;
 `
 
 const Banner = styled.div`
