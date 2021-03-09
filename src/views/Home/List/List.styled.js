@@ -3,6 +3,10 @@ import styled from 'styled-components'
 const ListWrapper = styled.div`
   padding-bottom: 2.4rem;
   border-top: 1px solid ${props => props.theme.colors.border};  
+
+  a {
+    text-decoration: none;
+  }
 `
 
 const ListItem = styled.div`

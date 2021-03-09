@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { actions } from './stores'
 import { connect } from 'react-redux'
 
@@ -24,15 +25,17 @@ const List = ({
   const dateGenerator = timestamp => timestamp.substr(0, 10)
 
   const renderTopicList = list => list.map(item => (
-    <ListItem key={item.id}>
-      <ListTitle>{item.title}</ListTitle>
-      <ListDescription>{item.description}</ListDescription>
-      <ListDetail>
-        <CreateDate>{dateGenerator(item.createTime)}</CreateDate>
-        <LikeAmount>{item.like}</LikeAmount>
-        <CommentAmount>{item.comment}</CommentAmount>
-      </ListDetail>
-    </ListItem>
+    <Link key={item.id} to='/detail'>
+      <ListItem>
+        <ListTitle>{item.title}</ListTitle>
+        <ListDescription>{item.description}</ListDescription>
+        <ListDetail>
+          <CreateDate>{dateGenerator(item.createTime)}</CreateDate>
+          <LikeAmount>{item.like}</LikeAmount>
+          <CommentAmount>{item.comment}</CommentAmount>
+        </ListDetail>
+      </ListItem>
+    </Link>
   ))
 
   return (

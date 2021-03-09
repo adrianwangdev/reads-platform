@@ -10,13 +10,11 @@ import Detail from './views/Detail'
 
 const App = () => (
   <Provider store={store}>
-    <>
-    <Header />
     <BrowserRouter>
+      <Header />
       <Route path='/' component={Home} exact />
       <Route path='/detail' component={Detail} />
     </BrowserRouter>
-    </>
   </Provider>
 )
 

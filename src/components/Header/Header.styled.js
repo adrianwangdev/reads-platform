@@ -10,9 +10,7 @@ const HeaderWrapper = styled.div`
   height: 6.4rem;
 `
 
-const Logo = styled.a.attrs({
-  href: '/'
-})`
+const Logo = styled.div`
   display: inline-block;
   width: 12rem;
   height: 6.4rem;
