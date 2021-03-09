@@ -4,7 +4,8 @@ const defaultState = {
   topicList: [],
   articleList: [],
   recommendList: [],
-  writerList: []
+  writerList: [],
+  showTopButton: false
 }
 
 const reducers = (state = defaultState, action) => {
@@ -16,6 +17,11 @@ const reducers = (state = defaultState, action) => {
         articleList: action.payload.articleList,
         recommendList: action.payload.recommendList,
         writerList: action.payload.writerList
+      }
+    case types.TOGGLE_TOP_BUTTON_VISIBLE:
+      return {
+        ...state,
+        showTopButton: action.payload
       }
     default:
       return state

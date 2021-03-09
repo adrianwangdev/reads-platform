@@ -23,3 +23,15 @@ export const getHomeLists = () => {
       })
   }
 }
+
+export const toggleTopVisible = () => (
+  document.documentElement.scrollTop > 240
+    ? ({
+      type: types.TOGGLE_TOP_BUTTON_VISIBLE,
+      payload: true
+    })
+    : ({
+      type: types.TOGGLE_TOP_BUTTON_VISIBLE,
+      payload: false
+    })
+)
