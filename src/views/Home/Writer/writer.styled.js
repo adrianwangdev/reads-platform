@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 const WriterWrapper = styled.div`
-  border: 1px solid #000;
+  padding-top: 1.2rem;
+  padding-bottom: 2.4rem;
 `
 
 const WriterTitle = styled.h3`
@@ -21,6 +22,7 @@ const WriterItem = styled.div`
   border-bottom: 1px solid ${props => props.theme.colors.border};
 
   &:last-child {
+    margin-bottom: 0;
     border: 0;
   }
 `

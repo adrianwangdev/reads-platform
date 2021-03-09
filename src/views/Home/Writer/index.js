@@ -14,13 +14,17 @@ import {
 
 const Writer = ({ writerList }) => {
 
+  const likeAmountGenerator = amount => (
+    Math.floor(amount / 1000 * 10) / 10
+  )
+
   const renderWriterList = () => (
     writerList.map((item, index) => (
       <WriterItem key={index}>
         <WriterInfo>
           <WriterName>{item.name}</WriterName>
           <ArticleAmount>{item.articleAmount}篇</ArticleAmount>
-          <LikeAmount>{item.likeAmount}</LikeAmount>
+          <LikeAmount>{likeAmountGenerator(item.likeAmount)}k</LikeAmount>
         </WriterInfo>
         <FollowButton>追蹤</FollowButton>
       </WriterItem>
