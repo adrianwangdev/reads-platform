@@ -13,12 +13,14 @@ import {
   CreateDate,
   LikeAmount,
   CommentAmount,
-  MoreButton
+  MoreButton,
+  RemindText
 } from './List.styled'
 
 const List = ({
   articleList,
   moreArticleLists,
+  showMoreButton,
   getMoreLists
 }) => {
 
@@ -42,13 +44,18 @@ const List = ({
     <ListWrapper>
       { renderTopicList(articleList) }
       { moreArticleLists.length > 0 && renderTopicList(moreArticleLists) }
-      <MoreButton onClick={getMoreLists}>載入所有精選文章</MoreButton>
+      {
+        showMoreButton
+          ? <MoreButton onClick={getMoreLists}>載入所有精選文章</MoreButton>
+          : <RemindText>精選文章已經到底了哦！</RemindText>
+      }
     </ListWrapper>
   )
 }
 
 const mapStateToProps = state => ({
-  moreArticleLists: state.homeMoreLists.moreArticleLists
+  moreArticleLists: state.homeMoreLists.moreArticleLists,
+  showMoreButton: state.homeMoreLists.showMoreButton
 })
 
 const mapDispatchToProps = {

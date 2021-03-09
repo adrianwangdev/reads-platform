@@ -3,7 +3,10 @@ import axios from 'axios'
 
 const updateLists = moreLists => ({
   type: types.GET_MORE_LISTS,
-  payload: moreLists
+  payload: {
+    moreArticleLists: moreLists,
+    showMoreButton: false
+  }
 })
 
 export const getMoreLists = () => {

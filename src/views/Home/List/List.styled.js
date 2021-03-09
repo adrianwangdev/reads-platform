@@ -76,6 +76,15 @@ const MoreButton = styled.div`
   }
 `
 
+const RemindText = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 2.4rem;
+  margin-top: 2.4rem;
+  color: ${props => props.theme.colors.text.light};
+`
+
 export {
   ListWrapper,
   ListItem,
@@ -85,5 +94,6 @@ export {
   CreateDate,
   LikeAmount,
   CommentAmount,
-  MoreButton
+  MoreButton,
+  RemindText
 }

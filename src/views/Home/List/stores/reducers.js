@@ -1,7 +1,8 @@
 import * as types from './actionTypes'
 
 const defaultState = {
-  moreArticleLists: []
+  moreArticleLists: [],
+  showMoreButton: true
 }
 
 const reducers = (state = defaultState, action) => {
@@ -9,7 +10,8 @@ const reducers = (state = defaultState, action) => {
     case types.GET_MORE_LISTS:
       return {
         ...state,
-        moreArticleLists: action.payload
+        moreArticleLists: action.payload.moreArticleLists,
+        showMoreButton: action.payload.showMoreButton
       }
     default:
       return state
