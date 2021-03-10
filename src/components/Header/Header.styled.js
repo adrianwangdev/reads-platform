@@ -6,8 +6,9 @@ import LogoImage from '../../assets/images/Logo.png'
 const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid ${props => props.theme.colors.border};
   height: 6.4rem;
+  overflow: hidden;
+  box-shadow: 0 .2rem .8rem rgba(0, 0, 0, .08);
 `
 
 const Logo = styled.div`
