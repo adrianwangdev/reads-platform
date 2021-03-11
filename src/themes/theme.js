@@ -15,7 +15,8 @@ const theme = {
       light: '#969696',
     },
     background: {
-      search: '#EEE'
+      search: '#EEE',
+      detail: '#F9F9F9'
     },
     border: '#E7E7E7',
     recommend: {
