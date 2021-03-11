@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 const NavbarWrapper = styled.nav`
   display: flex;
@@ -13,7 +14,7 @@ const NavbarWrapper = styled.nav`
   }
 `
 
-const NavItem = styled.div`
+const NavItem = styled(NavLink)`
   display: flex;
   align-items: center;
   padding-left: 1.6rem;
@@ -26,6 +27,7 @@ const NavItem = styled.div`
   color: ${props =>
     props.active && props.theme.colors.primary.default
   };
+  text-decoration: none;
   transition: all .2s;
   cursor: pointer;
 
