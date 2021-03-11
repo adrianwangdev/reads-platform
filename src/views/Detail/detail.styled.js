@@ -55,6 +55,7 @@ const ArticleContent = styled.div`
     font-size: 1.8rem;
     letter-spacing: .04rem;
     line-height: 1.6;
+    color: ${props => props.theme.colors.text.dark};
   }
   
   img {
