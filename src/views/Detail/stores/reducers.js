@@ -7,7 +7,7 @@ const defaultState = {
 
 const reducers = (state = defaultState, action) => {
   switch (action.type) {
-    case types.GET_DETAILL:
+    case types.GET_DETAIL:
       return ({
         ...state,
         title: action.payload.title,

@@ -1,1 +1,1 @@
-export const GET_DETAILL = 'get_detaill'
+export const GET_DETAIL = 'get_detail'
