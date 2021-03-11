@@ -13,6 +13,8 @@ const theme = {
     text: {
       dark: '#3E3E3E',
       light: '#969696',
+      link: '#5C98C4',
+      hoverLink: '#4079A3'
     },
     background: {
       search: '#EEE',
