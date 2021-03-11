@@ -9,6 +9,7 @@ const HeaderWrapper = styled.div`
   height: 6.4rem;
   overflow: hidden;
   box-shadow: 0 .2rem .8rem rgba(0, 0, 0, .08);
+  z-index: 1;
 `
 
 const Logo = styled.div`
