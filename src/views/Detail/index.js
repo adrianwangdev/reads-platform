@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actions } from './stores'
 import { Grid } from '@material-ui/core'
@@ -20,7 +21,11 @@ const Detail = ({
   getDetail
 }) => {
 
-  useEffect(getDetail, [])
+  const { id } = useParams()
+
+  useEffect(() => {
+    getDetail(id)
+  }, [])
 
   return (
       <DetailPage>
@@ -28,7 +33,6 @@ const Detail = ({
         <Grid container spacing={4}>
           <GridWhiteBackground item xs={8} className="mr16">
             <InfoTitle>
-              {/*標題標題標題標題標題標題標題標題標題標題*/}
               { detailContent.title }
             </InfoTitle>
             <ArticleInfo>
@@ -39,10 +43,6 @@ const Detail = ({
             <ArticleContent
               dangerouslySetInnerHTML={{ __html: detailContent.content }}
             >
-              {/*<p>文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容</p>*/}
-              {/*<img src="https://www.mirrormedia.com.tw/assets/images/20190728153604-68562b1cd3d0e507b9a9c9affbbf1423-mobile.jpg" alt="img"/>*/}
-              {/*<p>文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容</p>*/}
-              {/*<p>文章內容文章內容文章內容文章內容文章內容文文章內容文章內容文章內容文章內容文章內容文文章內容文章內容文章內容文章內容文章內容文文章內容文章內容文章內容文章內容文章內容文文章內容文章內容文章內容文章內容文章內容文</p>*/}
             </ArticleContent>
           </GridWhiteBackground>
           <GridWhiteBackground item xs={4}>

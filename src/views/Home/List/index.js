@@ -27,17 +27,17 @@ const List = ({
   const dateGenerator = timestamp => timestamp.substr(0, 10)
 
   const renderTopicList = list => list.map(item => (
-    <Link key={item.id} to='/detail'>
-      <ListItem>
-        <ListTitle>{item.title}</ListTitle>
-        <ListDescription>{item.description}</ListDescription>
-        <ListDetail>
-          <CreateDate>{dateGenerator(item.createTime)}</CreateDate>
-          <LikeAmount>{item.like}</LikeAmount>
-          <CommentAmount>{item.comment}</CommentAmount>
-        </ListDetail>
-      </ListItem>
-    </Link>
+      <Link key={item.id} to={`/detail/${item.id}`}>
+        <ListItem>
+          <ListTitle>{item.title}</ListTitle>
+          <ListDescription>{item.description}</ListDescription>
+          <ListDetail>
+            <CreateDate>{dateGenerator(item.createTime)}</CreateDate>
+            <LikeAmount>{item.like}</LikeAmount>
+            <CommentAmount>{item.comment}</CommentAmount>
+          </ListDetail>
+        </ListItem>
+      </Link>
   ))
 
   return (

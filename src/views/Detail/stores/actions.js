@@ -9,9 +9,9 @@ const updateLists = data => ({
     }
 })
 
-export const getDetail = () => {
+export const getDetail = id => {
     return (dispatch) => {
-        axios.get('/api/detail.json')
+        axios.get(`/api/detail.json?id=${id}`)
             .then(response => {
                 const { data } = response.data
                 dispatch(updateLists(data))

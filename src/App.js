@@ -8,14 +8,16 @@ import Header from './components/Header/Header'
 import Home from './views/Home'
 import Detail from './views/Detail'
 
-const App = () => (
-  <Provider store={store}>
-    <BrowserRouter>
-      <Header />
-      <Route path='/' component={Home} exact />
-      <Route path='/detail' component={Detail} />
-    </BrowserRouter>
-  </Provider>
-)
+const App = () => {
 
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <Header/>
+          <Route path='/' component={Home} exact/>
+          <Route path='/detail/:id' component={Detail} exact/>
+      </BrowserRouter>
+    </Provider>
+  )
+}
 export default App
