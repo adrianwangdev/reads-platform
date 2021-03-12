@@ -20,12 +20,9 @@ const NavItem = styled(NavLink)`
   padding-left: 1.6rem;
   padding-right: 1.6rem;
   height: 100%;
-  color: ${props => props.colorLight
+  color: ${props => props.$colorLight
     ? props.theme.colors.text.light
     : props.theme.colors.text.dark
-  };
-  color: ${props =>
-    props.active && props.theme.colors.primary.default
   };
   text-decoration: none;
   transition: all .2s;
@@ -33,6 +30,10 @@ const NavItem = styled(NavLink)`
 
   &:hover {
     background: ${props => props.theme.colors.basic.light};
+  }
+  
+  &.active {
+    color: ${props => props.theme.colors.primary.default};
   }
 `
 

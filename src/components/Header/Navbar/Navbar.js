@@ -21,6 +21,7 @@ import {
 const Navbar = ({
   isFocused,
   isMouseEnter,
+  userLogin,
   handleNavSearchFocus,
   handleNavSearchBlur
 }) => {
@@ -28,8 +29,8 @@ const Navbar = ({
   return (
   <NavbarWrapper>
     <div>
-      <NavItem active>首頁</NavItem>
-      <NavItem>下載</NavItem>
+      <NavItem to='/' exact>首頁</NavItem>
+      <NavItem to='/download'>下載</NavItem>
       <SearchWrapper>
         <NavSearch
           onFocus={handleNavSearchFocus}
@@ -42,8 +43,11 @@ const Navbar = ({
       </SearchWrapper>
     </div>
     <div>
-      <NavItem colorLight>Aa</NavItem>
-      <NavItem colorLight>登入</NavItem>
+      {
+        userLogin
+          ? <NavItem to='/logout' $colorLight>登出</NavItem>
+          : <NavItem to='/login' $colorLight>登入</NavItem>
+      }
       <Button>註冊</Button>
       <Button CTA>
         <PenIcon />
@@ -55,7 +59,8 @@ const Navbar = ({
 
 const mapStateToProps = state => ({
   isFocused: state.navbar.searchIsFocused,
-  isMouseEnter: state.recommend.isMouseEnter
+  isMouseEnter: state.recommend.isMouseEnter,
+  userLogin: state.login.userLogin
 })
 
 const mapDispatchToProps = {
