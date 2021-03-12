@@ -7,7 +7,6 @@ const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   height: 6.4rem;
-  overflow: hidden;
   box-shadow: 0 .2rem .8rem rgba(0, 0, 0, .08);
   z-index: 1;
 `
