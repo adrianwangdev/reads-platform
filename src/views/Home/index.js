@@ -33,14 +33,14 @@ const Home = ({
     window.scrollTo(0, 0)
   }
 
-  useEffect(getHomeLists, [])
+  useEffect(getHomeLists, [getHomeLists])
 
   useEffect(() => {
     window.addEventListener('scroll', toggleTopVisible)
     return () => {
       window.removeEventListener('scroll', toggleTopVisible)
     }
-  }, [showTopButton])
+  }, [showTopButton, toggleTopVisible])
 
   return (
     <HomeWrapper maxWidth="md">

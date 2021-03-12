@@ -26,7 +26,7 @@ const SearchRecommend = ({
 
   const spinIconRef = useRef()
 
-  useEffect(getRecommendList, [])
+  useEffect(getRecommendList, [getRecommendList])
 
   const renderList = (list, page) => {
     const pageList = []

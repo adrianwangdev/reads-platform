@@ -25,7 +25,7 @@ const Detail = ({
 
   useEffect(() => {
     getDetail(id)
-  }, [])
+  }, [getDetail, id])
 
   return (
       <DetailPage>
