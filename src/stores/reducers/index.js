@@ -4,13 +4,15 @@ import { reducers as recommendListReducer } from 'components/Header/Navbar/Searc
 import { reducers as homeReducer } from '../../views/Home/stores'
 import { reducers as listReducer } from '../../views/Home/List/stores'
 import { reducers as detailReducer } from '../../views/Detail/stores'
+import { reducers as loginReducer } from '../../views/Login/stores'
 
 const reducer = combineReducers({
   navbar: navbarReducer,
   recommend: recommendListReducer,
   homeLists: homeReducer,
   homeMoreLists: listReducer,
-  detailContent: detailReducer
+  detailContent: detailReducer,
+  login: loginReducer
 })
 
 export default reducer

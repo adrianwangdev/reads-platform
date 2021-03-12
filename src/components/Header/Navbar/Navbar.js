@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { actions } from './stores'
+import { actions as loginActions } from '../../../views/Login/stores'
 
 /* Components */
 import SearchRecommend from './SearchRecommend/SearchRecommend'
@@ -23,7 +24,8 @@ const Navbar = ({
   isMouseEnter,
   userLogin,
   handleNavSearchFocus,
-  handleNavSearchBlur
+  handleNavSearchBlur,
+  logout
 }) => {
 
   return (
@@ -45,7 +47,7 @@ const Navbar = ({
     <div>
       {
         userLogin
-          ? <NavItem to='/logout' $colorLight>登出</NavItem>
+          ? <NavItem to='/' onClick={logout} $colorLight>登出</NavItem>
           : <NavItem to='/login' $colorLight>登入</NavItem>
       }
       <Button>註冊</Button>
@@ -65,7 +67,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   handleNavSearchFocus: actions.handleNavSearchFocus,
-  handleNavSearchBlur: actions.handleNavSearchBlur
+  handleNavSearchBlur: actions.handleNavSearchBlur,
+  logout: loginActions.logout
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
