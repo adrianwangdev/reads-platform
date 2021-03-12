@@ -82,7 +82,7 @@ const NavSearch = styled.input.attrs({
   }
 `
 
-const Button = styled.div`
+const NavButton = styled(NavLink)`
   display: flex;
   align-items: center;
   margin-left: 1.2rem;
@@ -91,26 +91,19 @@ const Button = styled.div`
   border: 1px solid ${props => props.theme.colors.primary.default};
   border-radius: 2rem;
   height: 4rem;
-  color: ${props => props.theme.colors.primary.default};
+  color: ${props => props.theme.colors.basic.white};
+  text-decoration: none;
+  background: ${props => props.theme.colors.primary.default};
   transition: all .2s;
   cursor: pointer;
 
   &:hover {
-    background: ${props =>
-      props.CTA
-        ? props.theme.colors.primary.hoverCTA
-        : props.theme.colors.primary.hoverLight
-    };
+    background: ${props => props.theme.colors.primary.hoverCTA};
   }
 
   &:last-child {
     margin-right: 1.6rem;
   }
-
-  ${props => props.CTA && `
-    color: ${props.theme.colors.basic.white};
-    background: ${props.theme.colors.primary.default};
-  `}
 
   svg {
     margin-left: -.6rem;
@@ -123,5 +116,5 @@ export {
   NavItem,
   SearchWrapper,
   NavSearch,
-  Button
+  NavButton
 }

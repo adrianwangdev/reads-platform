@@ -16,7 +16,7 @@ import {
   NavItem,
   SearchWrapper,
   NavSearch,
-  Button
+  NavButton
 } from './Navbar.styled'
 
 const Navbar = ({
@@ -50,11 +50,9 @@ const Navbar = ({
           ? <NavItem to='/' onClick={logout} $colorLight>登出</NavItem>
           : <NavItem to='/login' $colorLight>登入</NavItem>
       }
-      <Button>註冊</Button>
-      <Button CTA>
-        <PenIcon />
-        寫文章
-      </Button>
+      <NavButton to='/write'>
+        <PenIcon />寫文章
+      </NavButton>
     </div>
   </NavbarWrapper>
 )}
