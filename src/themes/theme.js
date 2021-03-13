@@ -14,7 +14,8 @@ const theme = {
       dark: '#3E3E3E',
       light: '#969696',
       link: '#5C98C4',
-      hoverLink: '#4079A3'
+      hoverLink: '#4079A3',
+      danger: '#C32E2E'
     },
     background: {
       search: '#EEE',
