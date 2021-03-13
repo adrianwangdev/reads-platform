@@ -25,7 +25,7 @@ const Navbar = ({
   userLogin,
   handleNavSearchFocus,
   handleNavSearchBlur,
-  logout
+  userLogout
 }) => {
 
   return (
@@ -47,7 +47,7 @@ const Navbar = ({
     <div>
       {
         userLogin
-          ? <NavItem to='/' onClick={logout} $colorLight>登出</NavItem>
+          ? <NavItem to='/' onClick={userLogout} $colorLight>登出</NavItem>
           : <NavItem to='/login' $colorLight>登入</NavItem>
       }
       <NavButton to='/write'>
@@ -66,7 +66,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   handleNavSearchFocus: actions.handleNavSearchFocus,
   handleNavSearchBlur: actions.handleNavSearchBlur,
-  logout: loginActions.logout
+  userLogout: loginActions.userLogout
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

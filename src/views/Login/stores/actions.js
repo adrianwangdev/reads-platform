@@ -6,12 +6,7 @@ const updateLoginState = () => ({
   payload: true
 })
 
-const userLogout = () => ({
-  type: types.USER_LOGOUT,
-  payload: false
-})
-
-export const login = (accountElement, passwordElement) => {
+export const handleUserLogin = (accountElement, passwordElement) => {
   const account = accountElement.value
   const password = passwordElement.value
 
@@ -27,8 +22,17 @@ export const login = (accountElement, passwordElement) => {
   }
 }
 
-export const logout = () => {
-  return (dispatch) => {
-    dispatch(userLogout())
-  }
-}
+export const userLogout = () => ({
+  type: types.USER_LOGOUT,
+  payload: false
+})
+
+export const handleHasAccount = () => ({
+  type: types.USER_HAS_ACCOUNT,
+  payload: true
+})
+
+export const handleHasNotAccount = () => ({
+  type: types.USER_HAS_NOT_ACCOUNT,
+  payload: false
+})

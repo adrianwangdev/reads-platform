@@ -1,7 +1,10 @@
 import * as types from "./actionTypes"
 
 const defaultState = {
-  userLogin: false
+  userLogin: false,
+  hasAccount: false,
+  emailErrorMessage: '',
+  passwordErrorMessage: ''
 }
 
 const reducers = (state = defaultState, action) => {
@@ -15,6 +18,16 @@ const reducers = (state = defaultState, action) => {
       return {
         ...state,
         userLogin: action.payload
+      }
+    case types.USER_HAS_ACCOUNT:
+      return {
+        ...state,
+        hasAccount: action.payload
+      }
+    case types.USER_HAS_NOT_ACCOUNT:
+      return {
+        ...state,
+        hasAccount: action.payload
       }
     default:
       return state

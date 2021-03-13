@@ -33,8 +33,8 @@ const Title = styled.h3`
 `
 
 const Input = styled.input`
-  margin-bottom: 1.6rem;
-  padding: 1.2rem 1.6rem;
+  margin-bottom: .8rem;
+  padding: 1.6rem;
   border: 0;
   border-radius: .8rem;
   width: 24rem;
@@ -51,25 +51,40 @@ const Input = styled.input`
   }
 `
 
-const Link = styled.a.attrs({href: '/'})`
+const ErrorMessage = styled.span`
+  display: block;
+  margin-bottom: 1.2rem;
+  padding-left: .2rem;
+  font-size: 1.3rem;
+  color: ${props => props.theme.colors.text.danger};
+  opacity: ${props => props.showMessage ? 1 : 0};
+`
+
+const RemindText = styled.span`
   font-size: 1.4rem;
+  color: ${props => props.theme.colors.text.light};
+`
+
+const LinkText = styled.span`
   color: ${props => props.theme.colors.text.link};
   text-decoration: none;
   transition: all .2s;
+  cursor: pointer;
 
   &:hover {
     color: ${props => props.theme.colors.text.hoverLink};
   }
 `
 
-const LoginButton = styled.button`
-  margin-top: 3.2rem;
+const ActionButton = styled.button`
+  margin-top: .8rem;
   margin-bottom: 1.6rem;
   border: 0;
   border-radius: .8rem;
   width: 24rem;
   height: 4rem;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
+  line-height: 1.6;
   color: ${props => props.theme.colors.basic.white};
   background: ${props => props.theme.colors.primary.default};
   transition: all .2s;
@@ -84,17 +99,14 @@ const LoginButton = styled.button`
   }
 `
 
-const RemindText = styled.span`
-  color: ${props => props.theme.colors.text.light};
-`
-
 export {
   LoginPage,
   LoginWrapper,
   GridWhiteBackground,
   Title,
   Input,
-  Link,
-  LoginButton,
+  ErrorMessage,
+  LinkText,
+  ActionButton,
   RemindText
 }
