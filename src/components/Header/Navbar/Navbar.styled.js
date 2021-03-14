@@ -82,6 +82,11 @@ const NavSearch = styled.input.attrs({
   }
 `
 
+const UserAccount = styled.span`
+  margin-right: .8rem;
+  color: ${props => props.theme.colors.text.dark};
+`
+
 const NavButton = styled(NavLink)`
   display: flex;
   align-items: center;
@@ -116,5 +121,6 @@ export {
   NavItem,
   SearchWrapper,
   NavSearch,
+  UserAccount,
   NavButton
 }

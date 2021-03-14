@@ -13,7 +13,8 @@ import Writer from './Writer'
 import {
   HomeWrapper,
   Banner,
-  BackToTopButton
+  BackToTopButton,
+  LoginMessage
 } from './home.styled'
 
 /* Images */
@@ -24,6 +25,7 @@ const Home = ({
   articleList,
   recommendList,
   writerList,
+  userLogin,
   showTopButton,
   getHomeLists,
   toggleTopVisible
@@ -62,6 +64,7 @@ const Home = ({
           ? <BackToTopButton onClick={handleScrollTop}>Top</BackToTopButton>
           : null
       }
+      { userLogin ? <LoginMessage>登入成功！</LoginMessage> : null}
     </HomeWrapper>
   )
 }
@@ -71,7 +74,8 @@ const mapStateToProps = state => ({
   articleList: state.homeLists.articleList,
   recommendList: state.homeLists.recommendList,
   writerList: state.homeLists.writerList,
-  showTopButton: state.homeLists.showTopButton
+  showTopButton: state.homeLists.showTopButton,
+  userLogin: state.login.userLogin
 })
 
 const mapDispatchToProps = {

@@ -16,16 +16,18 @@ import {
   NavItem,
   SearchWrapper,
   NavSearch,
+  UserAccount,
   NavButton
 } from './Navbar.styled'
 
 const Navbar = ({
   isFocused,
   isMouseEnter,
+  user,
   userLogin,
   handleNavSearchFocus,
   handleNavSearchBlur,
-  userLogout
+  handleUserLogout
 }) => {
 
   return (
@@ -45,9 +47,10 @@ const Navbar = ({
       </SearchWrapper>
     </div>
     <div>
+      { user ? <UserAccount>{user.email}</UserAccount> : null }
       {
         userLogin
-          ? <NavItem to='/' onClick={userLogout} $colorLight>登出</NavItem>
+          ? <NavItem to='/' onClick={handleUserLogout} $colorLight>登出</NavItem>
           : <NavItem to='/login' $colorLight>登入</NavItem>
       }
       <NavButton to='/write'>
@@ -60,13 +63,14 @@ const Navbar = ({
 const mapStateToProps = state => ({
   isFocused: state.navbar.searchIsFocused,
   isMouseEnter: state.recommend.isMouseEnter,
+  user: state.login.user,
   userLogin: state.login.userLogin
 })
 
 const mapDispatchToProps = {
   handleNavSearchFocus: actions.handleNavSearchFocus,
   handleNavSearchBlur: actions.handleNavSearchBlur,
-  userLogout: loginActions.userLogout
+  handleUserLogout: loginActions.handleUserLogout
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

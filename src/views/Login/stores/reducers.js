@@ -1,6 +1,7 @@
 import * as types from "./actionTypes"
 
 const defaultState = {
+  user: null,
   userLogin: false,
   hasAccount: false,
   emailErrorMessage: '',
@@ -9,15 +10,17 @@ const defaultState = {
 
 const reducers = (state = defaultState, action) => {
   switch (action.type) {
-    case types.GET_USER_DATA:
+    case types.USER_LOGIN:
       return {
         ...state,
-        userLogin: action.payload
+        user: action.payload.user,
+        userLogin: action.payload.userLogin
       }
     case types.USER_LOGOUT:
       return {
         ...state,
-        userLogin: action.payload
+        user: action.payload.user,
+        userLogin: action.payload.userLogin
       }
     case types.USER_HAS_ACCOUNT:
       return {
@@ -28,6 +31,16 @@ const reducers = (state = defaultState, action) => {
       return {
         ...state,
         hasAccount: action.payload
+      }
+    case types.SET_EMAIL_ERROR_MESSAGE:
+      return {
+        ...state,
+        emailErrorMessage: action.payload
+      }
+    case types.SET_PASSWORD_ERROR_MESSAGE:
+      return {
+        ...state,
+        passwordErrorMessage: action.payload
       }
     default:
       return state

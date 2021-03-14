@@ -1,4 +1,6 @@
-export const GET_USER_DATA = 'get_user_data'
+export const USER_LOGIN = 'user_login'
 export const USER_LOGOUT = 'user_logout'
 export const USER_HAS_ACCOUNT = 'user_has_account'
 export const USER_HAS_NOT_ACCOUNT = 'user_has_not_account'
+export const SET_EMAIL_ERROR_MESSAGE = 'set_email_error_message'
+export const SET_PASSWORD_ERROR_MESSAGE = 'set_password_error_message'

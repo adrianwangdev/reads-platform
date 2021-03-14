@@ -29,8 +29,46 @@ const BackToTopButton = styled.div`
   cursor: pointer;
 `
 
+const LoginMessage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  border-radius: .8rem;
+  width: 48rem;
+  height: 5.6rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: ${props => props.theme.colors.basic.white};
+  background: ${props => props.theme.colors.text.success};
+  transform: translateX(-50%);
+  animation: fadeOut 2s forwards;
+  box-shadow: 0 .8rem 2.4rem rgba(0, 0, 0, .16);
+
+  @keyframes fadeOut {
+    0% {
+      top: 0;
+      opacity: 0;
+    }
+    25% {
+      top: 8%;
+      opacity: 1;
+    }
+    75% {
+      top: 8%;
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+`
+
 export {
   HomeWrapper,
   Banner,
-  BackToTopButton
+  BackToTopButton,
+  LoginMessage
 }
