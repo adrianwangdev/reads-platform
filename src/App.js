@@ -9,6 +9,7 @@ import Home from './views/Home'
 import Login from './views/Login'
 import Detail from './views/Detail'
 import Write from './views/Write'
+import Download from './views/Download'
 
 const App = () => {
 
@@ -17,6 +18,7 @@ const App = () => {
       <BrowserRouter>
         <Header/>
         <Route path='/' component={Home} exact />
+        <Route path='/download' component={Download} exact />
         <Route path='/login' component={Login} exact />
         <Route path='/detail/:id' component={Detail} exact />
         <Route path='/write' component={Write} exact />
