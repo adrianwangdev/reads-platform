@@ -5,6 +5,7 @@ import { reducers as homeReducer } from '../../views/Home/stores'
 import { reducers as listReducer } from '../../views/Home/List/stores'
 import { reducers as detailReducer } from '../../views/Detail/stores'
 import { reducers as loginReducer } from '../../views/Login/stores'
+import { reducers as downloadReducer } from '../../views/Download/stores'
 
 const reducer = combineReducers({
   navbar: navbarReducer,
@@ -12,7 +13,8 @@ const reducer = combineReducers({
   homeLists: homeReducer,
   homeMoreLists: listReducer,
   detailContent: detailReducer,
-  login: loginReducer
+  login: loginReducer,
+  download: downloadReducer
 })
 
 export default reducer
