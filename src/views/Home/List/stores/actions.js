@@ -12,12 +12,12 @@ export const getArticleList = () => {
       .collection('article')
       .get()
       .then(snapshot => {
-        const ArticleList = []
+        const articleList = []
         snapshot.forEach(doc => {
           const data = doc.data()
-          ArticleList.push(data)
+          articleList.push(data)
         })
-        dispatch(initList(ArticleList))
+        dispatch(initList(articleList))
       })
       .catch(error => {
         console.log('Error getting documents', error)
