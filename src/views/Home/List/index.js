@@ -79,8 +79,8 @@ const List = ({
 }
 
 const mapStateToProps = state => ({
-  articleList: state.homeMoreLists.articleList,
-  showMore: state.homeMoreLists.showMore
+  articleList: state.list.articleList,
+  showMore: state.list.showMore
 })
 
 const mapDispatchToProps = {
