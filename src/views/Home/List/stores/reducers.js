@@ -1,17 +1,21 @@
 import * as types from './actionTypes'
 
 const defaultState = {
-  moreArticleLists: [],
-  showMoreButton: true
+  articleList: [],
+  showMore: false
 }
 
 const reducers = (state = defaultState, action) => {
   switch (action.type) {
-    case types.GET_MORE_LISTS:
+    case types.GET_ARTICLE_LIST:
       return {
         ...state,
-        moreArticleLists: action.payload.moreArticleLists,
-        showMoreButton: action.payload.showMoreButton
+        articleList: action.payload
+      }
+    case types.SHOW_MORE_LISTS:
+      return {
+        ...state,
+        showMore: action.payload
       }
     default:
       return state

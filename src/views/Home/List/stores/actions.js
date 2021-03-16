@@ -1,23 +1,31 @@
 import * as types from './actionTypes'
-import axios from 'axios'
+import { db } from "services/firebase"
 
-const updateLists = moreLists => ({
-  type: types.GET_MORE_LISTS,
-  payload: {
-    moreArticleLists: moreLists,
-    showMoreButton: false
-  }
+const initList = list => ({
+  type: types.GET_ARTICLE_LIST,
+  payload: list
 })
 
-export const getMoreLists = () => {
+export const getArticleList = () => {
   return (dispatch) => {
-    axios.get('/api/moreLists.json')
-      .then(response => {
-        const { data } = response.data
-        dispatch(updateLists(data))
+    db
+      .collection('article')
+      .get()
+      .then(snapshot => {
+        const ArticleList = []
+        snapshot.forEach(doc => {
+          const data = doc.data()
+          ArticleList.push(data)
+        })
+        dispatch(initList(ArticleList))
       })
       .catch(error => {
-        console.warn(error)
+        console.log('Error getting documents', error)
       })
   }
 }
+
+export const showMoreList = () => ({
+  type: types.SHOW_MORE_LISTS,
+  payload: true
+})
