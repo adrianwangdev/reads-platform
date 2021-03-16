@@ -1,5 +1,5 @@
 import * as types from './actionTypes'
-import fire from '../../../firebase'
+import { auth } from 'services/firebase'
 
 const updateEmailErrorMessage = (errorMessage) => ({
   type: types.SET_EMAIL_ERROR_MESSAGE,
@@ -42,8 +42,7 @@ export const handleUserSignup = (accountElement, passwordElement) => {
   const password = passwordElement.value
 
   return (dispatch) => {
-    fire
-      .auth()
+    auth
       .createUserWithEmailAndPassword(account, password)
       .then(response => {
         dispatch(userLoginSuccess(response.user))
@@ -71,8 +70,7 @@ export const handleUserLogin = (accountElement, passwordElement) => {
   const password = passwordElement.value
 
   return (dispatch) => {
-    fire
-      .auth()
+    auth
       .signInWithEmailAndPassword(account, password)
       .then(response => {
         dispatch(userLoginSuccess(response.user))
@@ -97,7 +95,7 @@ export const handleUserLogin = (accountElement, passwordElement) => {
 
 export const handleUserLogout = () => {
   return (dispatch) => {
-    fire.auth().signOut().then(() => {
+    auth.signOut().then(() => {
       dispatch(userLogoutSuccess())
     })
   }
