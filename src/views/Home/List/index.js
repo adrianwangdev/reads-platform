@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { actions } from './stores'
 import { connect } from 'react-redux'
@@ -19,47 +19,73 @@ import {
 
 const List = ({
   articleList,
-  moreArticleLists,
-  showMoreButton,
-  getMoreLists
+  showMore,
+  getArticleList,
+  showMoreList
 }) => {
 
-  const dateGenerator = timestamp => timestamp.substr(0, 10)
+  useEffect(getArticleList, [getArticleList])
+
+  const dateGenerator = timestamp => {
+    const date = new Date(timestamp * 1000)
+    const year = date.getFullYear()
+    let month = '' + (date.getMonth() + 1)
+    let day = '' + date.getDate()
+
+    if (month.length < 2) month = '0' + month
+    if (day.length < 2) day = '0' + day
+
+    return [year, month, day].join('-')
+  }
 
   const renderTopicList = list => list.map(item => (
-      <Link key={item.id} to={`/detail/${item.id}`}>
-        <ListItem>
-          <ListTitle>{item.title}</ListTitle>
-          <ListDescription>{item.description}</ListDescription>
-          <ListDetail>
-            <CreateDate>{dateGenerator(item.createTime)}</CreateDate>
-            <LikeAmount>{item.like}</LikeAmount>
-            <CommentAmount>{item.comment}</CommentAmount>
-          </ListDetail>
-        </ListItem>
-      </Link>
+    <Link key={item.createTime.seconds} to={`/detail/${item.createTime.seconds}`}>
+      <ListItem>
+        <ListTitle>{item.title}</ListTitle>
+        <ListDescription>{item.description}</ListDescription>
+        <ListDetail>
+          <CreateDate>{dateGenerator(item.createTime.seconds)}</CreateDate>
+          <LikeAmount>{item.like}</LikeAmount>
+          <CommentAmount>{item.comment}</CommentAmount>
+        </ListDetail>
+      </ListItem>
+    </Link>
   ))
+
+  const firstRenderList = list => {
+    const initArticle = []
+    for (let i = 0; i < 5; i++) {
+      initArticle.push(list[i])
+    }
+    return renderTopicList(initArticle)
+  }
 
   return (
     <ListWrapper>
-      { renderTopicList(articleList) }
-      { moreArticleLists.length > 0 && renderTopicList(moreArticleLists) }
       {
-        showMoreButton
-          ? <MoreButton onClick={getMoreLists}>載入所有精選文章</MoreButton>
-          : <RemindText>精選文章已經到底了哦！</RemindText>
+        articleList.length > 0 && (
+          showMore
+            ? renderTopicList(articleList)
+            : firstRenderList(articleList)
+        )
+      }
+      {
+        showMore
+          ? <RemindText>精選文章已經到底了哦！</RemindText>
+          : <MoreButton onClick={showMoreList}>載入所有精選文章</MoreButton>
       }
     </ListWrapper>
   )
 }
 
 const mapStateToProps = state => ({
-  moreArticleLists: state.homeMoreLists.moreArticleLists,
-  showMoreButton: state.homeMoreLists.showMoreButton
+  articleList: state.homeMoreLists.articleList,
+  showMore: state.homeMoreLists.showMore
 })
 
 const mapDispatchToProps = {
-  getMoreLists: actions.getMoreLists
+  getArticleList: actions.getArticleList,
+  showMoreList: actions.showMoreList
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(List)
