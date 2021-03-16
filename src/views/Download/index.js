@@ -19,10 +19,12 @@ const Download = ({
   getDownloadLists
 }) => {
 
+  const sortByDownloads = list => list.sort((a, b) => b.downloads - a.downloads )
+
   const renderDownloadCards = list => (
     list.map(item => (
       <DownloadCard
-        key={item.id}
+        key={item.name}
         name={item.name}
         imageURL={item.imageURL}
         mobileDevice={item.mobileDevice}
@@ -39,7 +41,7 @@ const Download = ({
           <Title>不限平台．隨時隨地揮灑你的創作</Title>
           <DownloadListTitle>下載 Reads App</DownloadListTitle>
           <Grid container spacing={4} justify="center">
-            { renderDownloadCards(downloadLists) }
+            { renderDownloadCards(sortByDownloads(downloadLists)) }
           </Grid>
         </Grid>
       </DownloadWrapper>

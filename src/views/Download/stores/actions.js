@@ -1,20 +1,26 @@
 import * as types from './actionTypes'
-import axios from 'axios'
+import { db } from 'services/firebase'
 
-const updateLists = data => ({
+const updateLists = list => ({
   type: types.GET_DOWNLOAD_LISTS,
-  payload: data
+  payload: list
 })
 
 export const getDownloadLists = () => {
   return (dispatch) => {
-    axios.get('/api/downloadList.json')
-      .then(response => {
-        const { data } = response.data
-        dispatch(updateLists(data))
+    db
+      .collection('downloadList')
+      .get()
+      .then(snapshot => {
+        const downloadList = []
+        snapshot.forEach(doc => {
+          const data = doc.data()
+          downloadList.push(data)
+        })
+        dispatch(updateLists(downloadList))
       })
       .catch(error => {
-        console.warn(error)
+        console.log('Error getting documents', error)
       })
   }
 }
