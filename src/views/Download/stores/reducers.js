@@ -6,6 +6,12 @@ const defaultState = {
 
 const reducers = (state = defaultState, action) => {
   switch (action.type) {
+    case types.USER_LOGIN:
+      return {
+        ...state,
+        user: action.payload.user,
+        userLogin: action.payload.userLogin
+      }
     case types.GET_DOWNLOAD_LISTS:
       return {
         ...state,

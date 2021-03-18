@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { actions } from './stores'
 import { Grid } from '@material-ui/core'
+import { useWatch } from 'utilities/useWatch'
 
 /* Components */
 import Topic from './Topic'
@@ -22,10 +23,10 @@ import BannerImage from '../../assets/images/home/banner.jpg'
 
 const Home = ({
   topicList,
-  articleList,
   recommendList,
   writerList,
   userLogin,
+  keepUserLogin,
   showTopButton,
   getHomeLists,
   toggleTopVisible
@@ -34,6 +35,8 @@ const Home = ({
   const handleScrollTop = () => {
     window.scrollTo(0, 0)
   }
+
+  useWatch(keepUserLogin)
 
   useEffect(getHomeLists, [getHomeLists])
 
@@ -51,7 +54,7 @@ const Home = ({
           <Banner>
             <img src={BannerImage} alt="banner"/>
           </Banner>
-          <List articleList={articleList} />
+          <List />
         </Grid>
         <Grid item xs={4}>
           <Recommend recommendList={recommendList} />
@@ -70,15 +73,15 @@ const Home = ({
 }
 
 const mapStateToProps = state => ({
-  topicList: state.homeLists.topicList,
-  articleList: state.homeLists.articleList,
-  recommendList: state.homeLists.recommendList,
-  writerList: state.homeLists.writerList,
-  showTopButton: state.homeLists.showTopButton,
+  topicList: state.home.topicList,
+  recommendList: state.home.recommendList,
+  writerList: state.home.writerList,
+  showTopButton: state.home.showTopButton,
   userLogin: state.login.userLogin
 })
 
 const mapDispatchToProps = {
+  keepUserLogin: actions.keepUserLogin,
   getHomeLists: actions.getHomeLists,
   toggleTopVisible: actions.toggleTopVisible
 }

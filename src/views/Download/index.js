@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { actions } from './stores'
 import { Grid } from '@material-ui/core'
+import { useWatch } from 'utilities/useWatch'
 
 /* Components */
 import DownloadCard from './DownloadCard'
@@ -16,6 +17,7 @@ import {
 
 const Download = ({
   downloadLists,
+  keepUserLogin,
   getDownloadLists
 }) => {
 
@@ -33,6 +35,8 @@ const Download = ({
   )
 
   useEffect(getDownloadLists, [getDownloadLists])
+
+  useWatch(keepUserLogin)
 
   return (
     <DownloadPage>
@@ -54,6 +58,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
+  keepUserLogin: actions.keepUserLogin,
   getDownloadLists: actions.getDownloadLists
 }
 
