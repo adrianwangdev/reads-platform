@@ -9,7 +9,7 @@ import {
   RecommendSwitch,
   RecommendList,
   RecommendItem
-} from './SearchRecommend.styled'
+} from './searchRecommend.styled'
 
 /* Images */
 import { ReactComponent as RefreshIcon } from 'assets/images/icons/refresh.svg'

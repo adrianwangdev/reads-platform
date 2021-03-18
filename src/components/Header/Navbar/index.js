@@ -4,7 +4,7 @@ import { actions } from './stores'
 import { actions as loginActions } from 'views/Login/stores'
 
 /* Components */
-import SearchRecommend from './SearchRecommend/SearchRecommend'
+import SearchRecommend from './SearchRecommend'
 
 /* Images */
 import { ReactComponent as PenIcon } from 'assets/images/icons/pen.svg'
@@ -18,7 +18,7 @@ import {
   NavSearch,
   UserAccount,
   NavButton
-} from './Navbar.styled'
+} from './navbar.styled'
 
 const Navbar = ({
   isFocused,
