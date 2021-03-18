@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { actions } from './stores'
-import { actions as loginActions } from '../../../views/Login/stores'
+import { actions as loginActions } from 'views/Login/stores'
 
 /* Components */
 import SearchRecommend from './SearchRecommend/SearchRecommend'

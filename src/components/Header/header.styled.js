@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 /* Images */
-import LogoImage from '../../assets/images/Logo.png'
+import LogoImage from 'assets/images/Logo.png'
 
 const HeaderWrapper = styled.div`
   display: flex;

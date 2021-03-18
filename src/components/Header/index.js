@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Navbar from './Navbar/Navbar'
 
 /* Styles */
-import { HeaderWrapper, Logo } from './Header.styled'
+import { HeaderWrapper, Logo } from './header.styled'
 
 const Header = () => (
   <HeaderWrapper>
