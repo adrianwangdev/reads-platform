@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { actions } from './stores'
 import { connect } from 'react-redux'
+import { dateGenerator } from 'utilities/unixTimestampConverter'
 
 /* Styles */
 import {
@@ -26,25 +27,13 @@ const List = ({
 
   useEffect(getArticleList, [getArticleList])
 
-  const dateGenerator = timestamp => {
-    const date = new Date(timestamp * 1000)
-    const year = date.getFullYear()
-    let month = '' + (date.getMonth() + 1)
-    let day = '' + date.getDate()
-
-    if (month.length < 2) month = '0' + month
-    if (day.length < 2) day = '0' + day
-
-    return [year, month, day].join('-')
-  }
-
   const renderTopicList = list => list.map(item => (
     <Link key={item.createTime.seconds} to={`/detail/${item.createTime.seconds}`}>
       <ListItem>
         <ListTitle>{item.title}</ListTitle>
         <ListDescription>{item.description}</ListDescription>
         <ListDetail>
-          <CreateDate>{dateGenerator(item.createTime.seconds)}</CreateDate>
+          <CreateDate>{dateGenerator(item.createTime.seconds * 1000)}</CreateDate>
           <LikeAmount>{item.like}</LikeAmount>
           <CommentAmount>{item.comment}</CommentAmount>
         </ListDetail>
