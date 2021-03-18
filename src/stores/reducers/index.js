@@ -11,7 +11,7 @@ import { reducers as writeReducer } from '../../views/Write/stores'
 const reducer = combineReducers({
   navbar: navbarReducer,
   recommend: recommendListReducer,
-  homeLists: homeReducer,
+  home: homeReducer,
   list: listReducer,
   detailContent: detailReducer,
   login: loginReducer,
