@@ -11,6 +11,7 @@ const RecommendItem = styled.div`
   border-radius: .8rem;
   font-size: 1.8rem;
   font-weight: 700;
+  cursor: pointer;
   ${props => {
     const { recommend } = props.theme.colors
 
