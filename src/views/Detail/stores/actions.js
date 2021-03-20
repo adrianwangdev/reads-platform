@@ -1,23 +1,13 @@
 import * as types from './actionTypes'
-import axios from 'axios'
 
-const updateLists = data => ({
+const updateArticle = data => ({
   type: types.GET_DETAIL,
-  payload: {
-    title: data.title,
-    content: data.content
-  }
+  payload: data
 })
 
-export const getDetail = id => {
+export const getDetail = (id, articleList) => {
+  const article = articleList.find(item => item.id.toString() === id)
   return (dispatch) => {
-    axios.get(`/api/detail.json?id=${id}`)
-      .then(response => {
-        const { data } = response.data
-        dispatch(updateLists(data))
-      })
-      .catch(error => {
-        console.warn(error)
-      })
+    dispatch(updateArticle(article))
   }
 }

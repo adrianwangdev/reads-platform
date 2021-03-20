@@ -1,8 +1,7 @@
 import * as types from './actionTypes'
 
 const defaultState = {
-  title: '',
-  content: ''
+  articleDetail: {}
 }
 
 const reducers = (state = defaultState, action) => {
@@ -10,8 +9,7 @@ const reducers = (state = defaultState, action) => {
     case types.GET_DETAIL:
       return ({
         ...state,
-        title: action.payload.title,
-        content: action.payload.content
+        articleDetail: action.payload
       })
     default:
       return state
