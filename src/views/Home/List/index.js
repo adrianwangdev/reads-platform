@@ -28,7 +28,7 @@ const List = ({
   useEffect(getArticleList, [getArticleList])
 
   const renderTopicList = list => list.map(item => (
-    <Link key={item.createTime.seconds} to={`/detail/${item.createTime.seconds}`}>
+    <Link key={item.id} to={`/detail/${item.id}`}>
       <ListItem>
         <ListTitle>{item.title}</ListTitle>
         <ListDescription>{item.description}</ListDescription>
