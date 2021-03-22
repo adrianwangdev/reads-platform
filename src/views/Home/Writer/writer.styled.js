@@ -10,7 +10,7 @@ const WriterTitle = styled.h3`
   width: 100%;
   font-size: 1.4rem;
   font-weight: 700;
-  color: ${props => props.theme.colors.text.light};
+  color: ${({theme}) => theme.colors.text.light};
 `
 
 const WriterItem = styled.div`
@@ -19,7 +19,7 @@ const WriterItem = styled.div`
   align-items: center;
   margin-bottom: .8rem;
   padding-bottom: .8rem;
-  border-bottom: 1px solid ${props => props.theme.colors.border};
+  border-bottom: 1px solid ${({theme}) => theme.colors.border};
 
   &:last-child {
     margin-bottom: 0;
@@ -36,14 +36,14 @@ const WriterName = styled.p`
   width: 6rem;
   font-size: 1.5rem;
   font-weight: 700;
-  color: ${props => props.theme.colors.text.dark};
+  color: ${({theme}) => theme.colors.text.dark};
 `
 
 const ArticleAmount = styled.span`
   margin-right: .8rem;
   width: 6rem;
   font-size: 1.3rem;
-  color: ${props => props.theme.colors.text.light};
+  color: ${({theme}) => theme.colors.text.light};
 
   &::before {
     content: '📝';
@@ -54,7 +54,7 @@ const ArticleAmount = styled.span`
 
 const LikeAmount = styled.span`
   font-size: 1.3rem;
-  color: ${props => props.theme.colors.text.light};
+  color: ${({theme}) => theme.colors.text.light};
   
   &::before {
     content: '❤️';
@@ -64,15 +64,14 @@ const LikeAmount = styled.span`
 `
 
 const FollowButton = styled.div`
-  padding: .4rem;
-  padding-right: 0;
+  padding: .4rem 0 .4rem .4rem;
   font-size: 1.4rem;
   font-weight: 700;
-  color: ${props => props.theme.colors.primary.default};
+  color: ${({theme}) => theme.colors.primary.default};
   cursor: pointer;
 
   &:hover {
-    color: ${props => props.theme.colors.primary.hoverCTA};
+    color: ${({theme}) => theme.colors.primary.hoverCTA};
   }
 
   &::before {

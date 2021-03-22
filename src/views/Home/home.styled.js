@@ -24,8 +24,8 @@ const BackToTopButton = styled.div`
   height: 5.6rem;
   border-radius: .8rem;
   font-size: 1.4rem;
-  color: ${props => props.theme.colors.text.dark};
-  background: ${props => props.theme.colors.basic.light};
+  color: ${({theme}) => theme.colors.text.dark};
+  background: ${({theme}) => theme.colors.basic.light};
   cursor: pointer;
 `
 
@@ -41,8 +41,8 @@ const LoginMessage = styled.div`
   height: 5.6rem;
   font-size: 1.8rem;
   font-weight: bold;
-  color: ${props => props.theme.colors.basic.white};
-  background: ${props => props.theme.colors.text.success};
+  color: ${({theme}) => theme.colors.basic.white};
+  background: ${({theme}) => theme.colors.text.success};
   transform: translateX(-50%);
   animation: fadeOut 2s forwards;
   box-shadow: 0 .8rem 2.4rem rgba(0, 0, 0, .16);

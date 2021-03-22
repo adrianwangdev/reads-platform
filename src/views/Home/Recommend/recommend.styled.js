@@ -6,16 +6,15 @@ const RecommendWrapper = styled.div`
 
 const RecommendItem = styled.div`
   margin-bottom: .8rem;
-  padding: 1.6rem;
-  padding-left: 2.4rem;
+  padding: 1.6rem 1.6rem 1.6rem 2.4rem;
   border-radius: .8rem;
   font-size: 1.8rem;
   font-weight: 700;
   cursor: pointer;
-  ${props => {
-    const { recommend } = props.theme.colors
+  ${({theme, category}) => {
+    const { recommend } = theme.colors
 
-    switch (props.category) {
+    switch (category) {
       case 'daily':
         return (`
           color: ${recommend.dailyText};

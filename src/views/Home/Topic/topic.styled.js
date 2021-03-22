@@ -12,17 +12,17 @@ const TopicTitle = styled.h3`
   width: 100%;
   font-size: 1.4rem;
   font-weight: 700;
-  color: ${props => props.theme.colors.text.light};
+  color: ${({theme}) => theme.colors.text.light};
 `
 
 const TopicItem = styled.div`
-  border: 1px solid ${props => props.theme.colors.border};
+  border: 1px solid ${({theme}) => theme.colors.border};
   border-radius: .8rem;
   margin-right: 1.6rem;
   margin-bottom: 1.2rem;
   padding: .8rem 1rem;
-  color: ${props => props.theme.colors.text.dark};
-  background: ${props => props.theme.colors.basic.light};
+  color: ${({theme}) => theme.colors.text.dark};
+  background: ${({theme}) => theme.colors.basic.light};
   cursor: pointer;
 `
 

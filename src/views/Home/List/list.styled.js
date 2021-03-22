@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const ListWrapper = styled.div`
   padding-bottom: 2.4rem;
-  border-top: 1px solid ${props => props.theme.colors.border};  
+  border-top: 1px solid ${({theme}) => theme.colors.border};  
 
   a {
     text-decoration: none;
@@ -11,31 +11,31 @@ const ListWrapper = styled.div`
 
 const ListItem = styled.div`
   padding: 2.4rem .8rem;
-  border-bottom: 1px solid ${props => props.theme.colors.border};
+  border-bottom: 1px solid ${({theme}) => theme.colors.border};
   transition: all .3s;
   cursor: pointer;
 
   &:hover {
-    background: ${props => props.theme.colors.basic.light};
+    background: ${({theme}) => theme.colors.basic.light};
   }
 `
 
 const ListTitle = styled.h3`
   font-size: 2rem;
   font-weight: 700;
-  color: ${props => props.theme.colors.text.dark};
+  color: ${({theme}) => theme.colors.text.dark};
 `
 
 const ListDescription = styled.p`
   margin: 1.6rem 0;
   font-size: 1.4rem;
   line-height: 1.6;
-  color: ${props => props.theme.colors.text.light};
+  color: ${({theme}) => theme.colors.text.light};
 `
 
 const ListDetail = styled.div`
   font-size: 1.4rem;
-  color: ${props => props.theme.colors.text.light};
+  color: ${({theme}) => theme.colors.text.light};
 `
 
 const CreateDate = styled.time`
@@ -66,13 +66,13 @@ const MoreButton = styled.div`
   min-height: 4.8rem;
   margin-top: 2.4rem;
   border-radius: 2.4rem;
-  color: ${props => props.theme.colors.text.dark};
-  background: ${props => props.theme.colors.basic.light};
+  color: ${({theme}) => theme.colors.text.dark};
+  background: ${({theme}) => theme.colors.basic.light};
   transition: all .2s;
   cursor: pointer;
 
   &:hover {
-    background: ${props => props.theme.colors.background.search};
+    background: ${({theme}) => theme.colors.background.search};
   }
 `
 
@@ -82,7 +82,7 @@ const RemindText = styled.span`
   align-items: center;
   min-height: 2.4rem;
   margin-top: 2.4rem;
-  color: ${props => props.theme.colors.text.light};
+  color: ${({theme}) => theme.colors.text.light};
 `
 
 export {
