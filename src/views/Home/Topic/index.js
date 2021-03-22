@@ -5,7 +5,7 @@ import {
   TopicWrapper,
   TopicTitle,
   TopicItem
-} from './Topic.styled'
+} from './topic.styled'
 
 const Topic = ({ topicList }) => {
 

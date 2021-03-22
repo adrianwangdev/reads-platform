@@ -16,7 +16,7 @@ import {
   CommentAmount,
   MoreButton,
   RemindText
-} from './List.styled'
+} from './list.styled'
 
 const List = ({
   articleList,

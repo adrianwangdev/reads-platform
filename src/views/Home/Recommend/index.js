@@ -4,7 +4,7 @@ import React from 'react'
 import {
   RecommendWrapper,
   RecommendItem
-} from './Recommend.styled'
+} from './recommend.styled'
 
 const Recommend = ({ recommendList }) => {
 
