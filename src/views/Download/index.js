@@ -41,7 +41,7 @@ const Download = ({
   return (
     <DownloadPage>
       <DownloadWrapper maxWidth="md">
-        <Grid container spacing={4} direction="column" alignItems="center">
+        <Grid container direction="column" alignItems="center">
           <Title>不限平台．隨時隨地揮灑你的創作</Title>
           <DownloadListTitle>下載 Reads App</DownloadListTitle>
           <Grid container spacing={4} justify="center">
