@@ -33,6 +33,11 @@ const theme = {
       publicationText: '#559088',
       publicationBackground: '#C1E4DE'
     }
+  },
+  device: {
+    mobile: '600px',
+    tablet: '960px',
+    desktop: '1200px'
   }
 }
 
