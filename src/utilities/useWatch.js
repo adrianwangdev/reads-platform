@@ -6,5 +6,5 @@ export const useWatch = (watchAction) => {
     auth.onAuthStateChanged(user => {
       user && watchAction(user)
     })
-  }, [])
+  }, [watchAction])
 }
