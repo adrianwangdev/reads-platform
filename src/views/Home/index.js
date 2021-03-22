@@ -50,13 +50,13 @@ const Home = ({
   return (
     <HomeWrapper maxWidth="md">
       <Grid container spacing={4}>
-        <Grid item xs={8}>
+        <Grid item xs={12} md={8}>
           <Banner>
             <img src={BannerImage} alt="banner"/>
           </Banner>
           <List />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <Recommend recommendList={recommendList} />
           <Topic topicList={topicList} />
           <Writer writerList={writerList} />

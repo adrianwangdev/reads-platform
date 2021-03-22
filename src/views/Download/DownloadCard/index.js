@@ -11,7 +11,7 @@ import {
 const DownloadCard = ({
   name, imageURL, mobileDevice
 }) => (
-  <Grid item xs={4}>
+  <Grid item xs={12} sm={4}>
     <CardWrapper mobileDevice={!!mobileDevice} >
       <OsImage src={imageURL} alt={name} />
       <OsName>{name}</OsName>
