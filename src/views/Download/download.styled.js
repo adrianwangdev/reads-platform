@@ -14,8 +14,18 @@ const Title = styled.h3`
   margin-bottom: 7.2rem;
   font-size: 4.8rem;
   font-weight: bold;
+  text-align: center;
   line-height: 1.4;
-  color: ${props => props.theme.colors.text.dark};
+  color: ${({theme}) => theme.colors.text.dark};
+
+  @media (max-width: ${({theme}) => theme.device.tablet}) {
+    font-size: 4rem;
+  }
+
+  @media (max-width: ${({theme}) => theme.device.mobile}) {
+    max-width: 92%;
+    font-size: 3.2rem;
+  }
 `
 
 const DownloadListTitle = styled.h3`
@@ -24,7 +34,16 @@ const DownloadListTitle = styled.h3`
   margin-bottom: 5.6rem;
   font-size: 3.6rem;
   font-weight: bold;
-  color: ${props => props.theme.colors.primary.default};
+  color: ${({theme}) => theme.colors.primary.default};
+
+  @media (max-width: ${({theme}) => theme.device.tablet}) {
+    font-size: 3.2rem;
+  }
+
+  @media (max-width: ${({theme}) => theme.device.mobile}) {
+    max-width: 92%;
+    font-size: 2.8rem;
+  }
   
   &::before {
     content: "⭳";

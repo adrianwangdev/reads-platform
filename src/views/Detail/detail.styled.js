@@ -3,7 +3,7 @@ import { Container, Grid } from '@material-ui/core'
 
 const DetailPage = styled.div`
   padding: 2.4rem 0;
-  background: ${props => props.theme.colors.background.detail};
+  background: ${({theme}) => theme.colors.background.detail};
 `
 
 const DetailWrapper = styled(Container)`
@@ -12,15 +12,24 @@ const DetailWrapper = styled(Container)`
 
 const GridWhiteBackground = styled(Grid)`
   border-radius: .8rem;
-  background: ${props => props.theme.colors.basic.white};
+  background: ${({theme}) => theme.colors.basic.white};
 
   &.mr16 {
-    margin-right: 1.6rem;
     max-width: calc(66.666667% - 1.6rem);
+    margin-right: 1.6rem;
+    
+    @media (max-width: ${({theme}) => theme.device.tablet}) {
+      max-width: inherit;
+      margin-right: inherit;
+    }
   }
 
   &.mb16 {
     margin-bottom: 1.6rem;
+
+    @media (max-width: ${({theme}) => theme.device.tablet}) {
+      margin-top: 1.6rem;
+    }
   }
 `
 
@@ -36,11 +45,7 @@ const ArticleInfo = styled.div`
   padding: .2rem;
   font-size: 1.4rem;
   letter-spacing: .04rem;
-  color: ${props => props.theme.colors.text.light};
-`
-
-const CreatedTime = styled.time`
-  margin-right: 1.6rem;
+  color: ${({theme}) => theme.colors.text.light};
 `
 
 const InfoSubtitle = styled.span`
@@ -66,7 +71,7 @@ const ArticleContent = styled.div`
     font-size: 1.8rem;
     letter-spacing: .04rem;
     line-height: 1.6;
-    color: ${props => props.theme.colors.text.dark};
+    color: ${({theme}) => theme.colors.text.dark};
   }
   
   img {
@@ -100,7 +105,7 @@ const AuthorInfo = styled.div`
 const AuthorName = styled.p`
   margin-bottom: .8rem;
   font-size: 1.8rem;
-  color: ${props => props.theme.colors.text.dark};
+  color: ${({theme}) => theme.colors.text.dark};
 `
 
 const AuthorDescription = styled.span`
@@ -110,7 +115,7 @@ const AuthorDescription = styled.span`
     margin-right: 2rem;
     font-size: 1.4rem;
     line-height: 1.4;
-    color: ${props => props.theme.colors.text.light};
+    color: ${({theme}) => theme.colors.text.light};
   }
   
   span {
@@ -125,11 +130,11 @@ const AuthorFollowButton = styled.div`
   padding: .4em;
   font-size: 1.4rem;
   font-weight: 700;
-  color: ${props => props.theme.colors.primary.default};
+  color: ${({theme}) => theme.colors.primary.default};
   cursor: pointer;
 
   &:hover {
-    color: ${props => props.theme.colors.primary.hoverCTA};
+    color: ${({theme}) => theme.colors.primary.hoverCTA};
   }
 
   &::before {
@@ -144,7 +149,7 @@ const SectionTitle = styled.h3`
   margin-bottom: 2rem;
   font-size: 1.8rem;
   font-weight: bold;
-  color: ${props => props.theme.colors.text.dark};
+  color: ${({theme}) => theme.colors.text.dark};
 
   &::before {
     content: "";
@@ -152,14 +157,14 @@ const SectionTitle = styled.h3`
     border-radius: .2rem;
     width: .4rem;
     height: 2rem;
-    background: ${props => props.theme.colors.primary.default};
+    background: ${({theme}) => theme.colors.primary.default};
   }
 `
 
 const MoreArticleWrapper = styled.div`
   padding-bottom: 1.6rem;
   margin-bottom: 1.6rem;
-  border-bottom: 1px solid ${props => props.theme.colors.border};
+  border-bottom: 1px solid ${({theme}) => theme.colors.border};
   line-height: 1.4;
   cursor: pointer;
   
@@ -173,13 +178,13 @@ const MoreArticleWrapper = styled.div`
 const MoreArticleTitle = styled.p`
   padding: .4rem 0;
   font-size: 1.8rem;
-  color: ${props => props.theme.colors.text.dark};
+  color: ${({theme}) => theme.colors.text.dark};
 `
 
 const MoreArticleLikeAmount = styled.p`
   padding: .4rem 0;
   font-size: 1.4rem;
-  color: ${props => props.theme.colors.text.light};
+  color: ${({theme}) => theme.colors.text.light};
 `
 
 export {
@@ -188,7 +193,6 @@ export {
   GridWhiteBackground,
   ArticleInfo,
   InfoTitle,
-  CreatedTime,
   InfoSubtitle,
   ArticleContent,
   AuthorWrapper,

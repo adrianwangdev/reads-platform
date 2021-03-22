@@ -20,20 +20,25 @@ const NavItem = styled(NavLink)`
   padding-left: 1.6rem;
   padding-right: 1.6rem;
   height: 100%;
-  color: ${props => props.$colorLight
-    ? props.theme.colors.text.light
-    : props.theme.colors.text.dark
+  color: ${({$colorLight, theme}) => $colorLight
+    ? theme.colors.text.light
+    : theme.colors.text.dark
   };
   text-decoration: none;
   transition: all .2s;
   cursor: pointer;
 
   &:hover {
-    background: ${props => props.theme.colors.basic.light};
+    background: ${({theme}) => theme.colors.basic.light};
   }
   
   &.active {
-    color: ${props => props.theme.colors.primary.default};
+    color: ${({theme}) => theme.colors.primary.default};
+  }
+
+  @media (max-width: ${({theme}) => theme.device.mobile}) {
+    padding-left: .8rem;
+    padding-right: .8rem;
   }
 `
 
@@ -50,11 +55,11 @@ const SearchWrapper = styled.div`
     transform: translateY(-50%);
 
     &.focused {
-      background: ${props => props.theme.colors.basic.half};
+      background: ${({theme}) => theme.colors.basic.half};
 
       path {
         transition: all .4s;
-        fill: ${props => props.theme.colors.basic.light};
+        fill: ${({theme}) => theme.colors.basic.light};
       }
     }
   }
@@ -68,13 +73,13 @@ const NavSearch = styled.input.attrs({
   border-radius: 2rem;
   width: 16rem;
   height: 4rem;
-  color: ${props => props.theme.colors.text.dark};
-  background: ${props => props.theme.colors.background.search};
+  color: ${({theme}) => theme.colors.text.dark};
+  background: ${({theme}) => theme.colors.background.search};
   outline: none;
   transition: all .4s;
 
   &::placeholder {
-    color: ${props => props.theme.colors.text.light};
+    color: ${({theme}) => theme.colors.text.light};
   }
 
   &:focus {
@@ -84,7 +89,7 @@ const NavSearch = styled.input.attrs({
 
 const UserAccount = styled.span`
   margin-right: .8rem;
-  color: ${props => props.theme.colors.text.dark};
+  color: ${({theme}) => theme.colors.text.dark};
 `
 
 const NavButton = styled(NavLink)`
@@ -93,17 +98,17 @@ const NavButton = styled(NavLink)`
   margin-left: 1.2rem;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
-  border: 1px solid ${props => props.theme.colors.primary.default};
+  border: 1px solid ${({theme}) => theme.colors.primary.default};
   border-radius: 2rem;
   height: 4rem;
-  color: ${props => props.theme.colors.basic.white};
+  color: ${({theme}) => theme.colors.basic.white};
   text-decoration: none;
-  background: ${props => props.theme.colors.primary.default};
+  background: ${({theme}) => theme.colors.primary.default};
   transition: all .2s;
   cursor: pointer;
 
   &:hover {
-    background: ${props => props.theme.colors.primary.hoverCTA};
+    background: ${({theme}) => theme.colors.primary.hoverCTA};
   }
 
   &:last-child {

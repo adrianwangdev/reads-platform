@@ -3,18 +3,18 @@ import { Container, Grid } from '@material-ui/core'
 
 const WritePage = styled.div`
   padding: 2.4rem 0;
-  background: ${props => props.theme.colors.background.detail};
+  background: ${({theme}) => theme.colors.background.detail};
   
   .ck-toolbar__items {
     height: 4.8rem;
   }
   .ck-toolbar_grouping {
-    border: 1px solid ${props => props.theme.colors.border};
+    border: 1px solid ${({theme}) => theme.colors.border};
     border-top-left-radius: .8rem !important;
     border-top-right-radius: .8rem !important;
   }
   .ck-content {
-    border: 1px solid ${props => props.theme.colors.border} !important;
+    border: 1px solid ${({theme}) => theme.colors.border} !important;
     border-bottom-left-radius: .8rem !important;
     border-bottom-right-radius: .8rem !important;
     height: 40rem;
@@ -37,7 +37,7 @@ const WriteWrapper = styled(Container)`
 
 const GridWhiteBackground = styled(Grid)`
   border-radius: .8rem;
-  background: ${props => props.theme.colors.basic.white};
+  background: ${({theme}) => theme.colors.basic.white};
 `
 
 const ArticleTitleInput = styled.input.attrs({
@@ -45,15 +45,20 @@ const ArticleTitleInput = styled.input.attrs({
 })`
   margin-bottom: 2.4rem;
   padding: 1.6rem 1.2rem;
-  border: 1px solid ${props => props.theme.colors.border};
+  border: 1px solid ${({theme}) => theme.colors.border};
   border-radius: .8rem;
   width: 100%;
   font-size: 2.4rem;
   line-height: 1.8;
-  color: ${props => props.theme.colors.text.dark};
-
+  color: ${({theme}) => theme.colors.text.dark};
+  
+  @media (max-width: ${({theme}) => theme.device.mobile}) {
+    padding: .8rem;
+    font-size: 2rem;
+  }
+  
   &::placeholder {
-    color: ${props => props.theme.colors.text.light};
+    color: ${({theme}) => theme.colors.text.light};
   }
   
   &:focus {
@@ -64,19 +69,23 @@ const ArticleTitleInput = styled.input.attrs({
 const SubmitPostButton = styled.button`
   margin-top: 2.4rem;
   margin-bottom: .8rem;
-  border: 1px solid ${props => props.theme.colors.primary.default};
+  border: 1px solid ${({theme}) => theme.colors.primary.default};
   border-radius: .8rem;
   height: 4.8rem;
   width: 100%;
   font-size: 2rem;
-  color: ${props => props.theme.colors.primary.default};
-  background: ${props => props.theme.colors.primary.hoverLight};
+  color: ${({theme}) => theme.colors.primary.default};
+  background: ${({theme}) => theme.colors.primary.hoverLight};
   transition: all .3s;
   cursor: pointer;
 
+  @media (max-width: ${({theme}) => theme.device.mobile}) {
+    font-size: 1.8rem;
+  }
+
   &:hover {
-    color: ${props => props.theme.colors.basic.white};
-    background: ${props => props.theme.colors.primary.hoverCTA};
+    color: ${({theme}) => theme.colors.basic.white};
+    background: ${({theme}) => theme.colors.primary.hoverCTA};
   }
   
   &:focus {
@@ -91,24 +100,29 @@ const SectionTitle = styled.h2`
   text-align: center;
   font-size: 2.8rem;
   font-weight: bold;
-  color: ${props => props.theme.colors.text.dark};
+  color: ${({theme}) => theme.colors.text.dark};
 `
 
 
 const PostList = styled.div`
   padding: 2.4rem 0;
   width: 100%;
-  color: ${props => props.theme.colors.text.dark};
+  color: ${({theme}) => theme.colors.text.dark};
 `
 
 const PostItem = styled.div`
   padding: 2.4rem .8rem;
-  border-bottom: 1px solid ${props => props.theme.colors.border};
+  border-bottom: 1px solid ${({theme}) => theme.colors.border};
 `
 
 const PostTitle = styled.h3`
   font-size: 2.2rem;
   font-weight: 700;
+  line-height: 1.4;
+  
+  @media (max-width: ${({theme}) => theme.device.mobile}) {
+    font-size: 2rem;
+  }
 `
 
 const PostContent = styled.div`
@@ -119,18 +133,27 @@ const PostContent = styled.div`
     font-size: 1.8rem;
     letter-spacing: .04rem;
     line-height: 1.6;
+
+    @media (max-width: ${({theme}) => theme.device.mobile}) {
+      padding: .6rem 0;
+      font-size: 1.6rem;
+    }
   }
   
   img {
     margin: 2.4rem 0;
     width: 100%;
+
+    @media (max-width: ${({theme}) => theme.device.mobile}) {
+      margin: 1.6rem 0;
+    }
   }
 `
 
 const CreatedTime = styled.time`
   margin-right: 1.6rem;
   font-size: 1.4rem;
-  color: ${props => props.theme.colors.text.light};
+  color: ${({theme}) => theme.colors.text.light};
 `
 
 export {
