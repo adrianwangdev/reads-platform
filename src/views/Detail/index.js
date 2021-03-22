@@ -79,16 +79,16 @@ const Detail = ({
 
   useEffect(() => {
     getDetail(id, articleList)
-  }, [getDetail, id])
+  }, [id, articleList, getDetail])
 
   return (
     <DetailPage>
       <DetailWrapper maxWidth="md">
         <Grid container spacing={4} alignItems={'flex-start'}>
-          <GridWhiteBackground item xs={8} className="mr16">
+          <GridWhiteBackground item xs={12} md={8} className="mr16">
             { renderArticleDetail(articleDetail) }
           </GridWhiteBackground>
-          <Grid item xs={4}>
+          <Grid item xs={12} md={4}>
             <Grid container spacing={4}>
               <GridWhiteBackground item xs={12} className="mb16">
                 { renderAuthor(articleDetail) }
