@@ -2,6 +2,7 @@ import * as types from './actionTypes'
 
 const defaultState = {
   articleList: [],
+  filteredList: [],
   showMore: false
 }
 
@@ -16,6 +17,11 @@ const reducers = (state = defaultState, action) => {
       return {
         ...state,
         showMore: action.payload
+      }
+    case types.UPDATE_FILTER_LIST:
+      return {
+        ...state,
+        filteredList: action.payload
       }
     default:
       return state

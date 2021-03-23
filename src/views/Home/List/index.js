@@ -20,12 +20,19 @@ import {
 
 const List = ({
   articleList,
+  filteredList,
   showMore,
+  searchContent,
   getArticleList,
-  showMoreList
+  showMoreList,
+  filterArticle
 }) => {
 
   useEffect(getArticleList, [getArticleList])
+
+  useEffect(() => {
+    filterArticle(searchContent, articleList)
+  }, [searchContent])
 
   const renderTopicList = list => list.map(item => (
     <Link key={item.id} to={`/detail/${item.id}`}>
@@ -52,16 +59,22 @@ const List = ({
   return (
     <ListWrapper>
       {
-        articleList.length > 0 && (
-          showMore
-            ? renderTopicList(articleList)
-            : firstRenderList(articleList)
-        )
-      }
-      {
-        showMore
-          ? <RemindText>精選文章已經到底了哦！</RemindText>
-          : <MoreButton onClick={showMoreList}>載入所有精選文章</MoreButton>
+        filteredList.length > 0
+          ? renderTopicList(filteredList)
+          : <>
+              {
+                articleList.length > 0 && (
+                  showMore
+                    ? renderTopicList(articleList)
+                    : firstRenderList(articleList)
+                )
+              }
+              {
+                showMore
+                  ? <RemindText>精選文章已經到底了哦！</RemindText>
+                  : <MoreButton onClick={showMoreList}>載入所有精選文章</MoreButton>
+              }
+            </>
       }
     </ListWrapper>
   )
@@ -69,12 +82,15 @@ const List = ({
 
 const mapStateToProps = state => ({
   articleList: state.list.articleList,
-  showMore: state.list.showMore
+  filteredList: state.list.filteredList,
+  showMore: state.list.showMore,
+  searchContent: state.navbar.searchContent
 })
 
 const mapDispatchToProps = {
   getArticleList: actions.getArticleList,
-  showMoreList: actions.showMoreList
+  showMoreList: actions.showMoreList,
+  filterArticle: actions.filterArticle
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(List)

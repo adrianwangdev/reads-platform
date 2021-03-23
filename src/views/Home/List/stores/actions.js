@@ -29,3 +29,14 @@ export const showMoreList = () => ({
   type: types.SHOW_MORE_LISTS,
   payload: true
 })
+
+export const filterArticle = (searchContent, list) => {
+  const content = searchContent.toLowerCase()
+  const filteredList = list.filter(article =>
+    article.title.toLowerCase().includes(content)
+  )
+  return {
+    type: types.UPDATE_FILTER_LIST,
+    payload: filteredList
+  }
+}
