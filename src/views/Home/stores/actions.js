@@ -47,3 +47,15 @@ export const keepUserLogin = current => {
     })
   }
 }
+
+export const toggleDevice = () => (
+  window.innerWidth < 960
+    ? ({
+      type: types.TOGGLE_DEVICE_TO_MOBILE,
+      payload: true
+    })
+    : ({
+      type: types.TOGGLE_DEVICE_TO_MOBILE,
+      payload: false
+    })
+)

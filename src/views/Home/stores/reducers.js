@@ -1,6 +1,7 @@
 import * as types from './actionTypes'
 
 const defaultState = {
+  isMobile: false,
   topicList: [],
   articleList: [],
   recommendList: [],
@@ -22,6 +23,11 @@ const reducers = (state = defaultState, action) => {
       return {
         ...state,
         showTopButton: action.payload
+      }
+    case types.TOGGLE_DEVICE_TO_MOBILE:
+      return {
+        ...state,
+        isMobile: action.payload
       }
     default:
       return state

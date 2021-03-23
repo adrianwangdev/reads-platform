@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { actions } from './stores'
 import { Grid } from '@material-ui/core'
 import { useWatch } from 'utilities/useWatch'
+import { useRWD } from 'utilities/useRWD'
 
 /* Components */
 import Topic from './Topic'
@@ -29,14 +30,17 @@ const Home = ({
   keepUserLogin,
   showTopButton,
   getHomeLists,
-  toggleTopVisible
+  toggleTopVisible,
+  toggleDevice
 }) => {
-  
+
   const handleScrollTop = () => {
     window.scrollTo(0, 0)
   }
 
   useWatch(keepUserLogin)
+
+  useRWD(toggleDevice)
 
   useEffect(getHomeLists, [getHomeLists])
 
@@ -83,7 +87,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   keepUserLogin: actions.keepUserLogin,
   getHomeLists: actions.getHomeLists,
-  toggleTopVisible: actions.toggleTopVisible
+  toggleTopVisible: actions.toggleTopVisible,
+  toggleDevice: actions.toggleDevice
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
