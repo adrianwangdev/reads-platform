@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react'
+import { useWatch } from 'utilities/useWatch'
+import { useRWD } from 'utilities/useRWD'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actions } from './stores'
+import { actions as homeActions } from '../Home/stores'
 import { Grid } from '@material-ui/core'
-import { useWatch } from 'utilities/useWatch'
 import { dateGenerator } from 'utilities/unixTimestampConverter'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
@@ -24,14 +26,15 @@ import {
 
 const Write = ({
   userLogin,
-  keepUserLogin,
   postList,
   articleTitle,
   articleContent,
   getMyPostList,
   handleChangeArticleTitle,
   handleChangeArticleContent,
-  handleSubmitPost
+  handleSubmitPost,
+  keepUserLogin,
+  toggleDevice
 }) => {
 
   const titleRef = useRef()
@@ -48,7 +51,9 @@ const Write = ({
       ))
     )
   }
+
   useWatch(keepUserLogin)
+  useRWD(toggleDevice)
   useEffect(getMyPostList, [getMyPostList])
 
   return (
@@ -98,11 +103,12 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  keepUserLogin: actions.keepUserLogin,
   getMyPostList: actions.getMyPostList,
   handleChangeArticleTitle: actions.handleChangeArticleTitle,
   handleChangeArticleContent: actions.handleChangeArticleContent,
-  handleSubmitPost: actions.handleSubmitPost
+  handleSubmitPost: actions.handleSubmitPost,
+  keepUserLogin: homeActions.keepUserLogin,
+  toggleDevice: homeActions.toggleDevice
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Write)

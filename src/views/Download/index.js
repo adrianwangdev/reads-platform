@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
+import { useWatch } from 'utilities/useWatch'
+import { useRWD } from 'utilities/useRWD'
 import { connect } from 'react-redux'
 import { actions } from './stores'
+import { actions as homeActions } from '../Home/stores'
 import { Grid } from '@material-ui/core'
-import { useWatch } from 'utilities/useWatch'
 
 /* Components */
 import DownloadCard from './DownloadCard'
@@ -17,8 +19,9 @@ import {
 
 const Download = ({
   downloadLists,
+  getDownloadLists,
   keepUserLogin,
-  getDownloadLists
+  toggleDevice
 }) => {
 
   const sortByDownloads = list => list.sort((a, b) => b.downloads - a.downloads )
@@ -34,8 +37,9 @@ const Download = ({
     ))
   )
 
+  useWatch(keepUserLogin)
+  useRWD(toggleDevice)
   useEffect(getDownloadLists, [getDownloadLists])
-
   useWatch(keepUserLogin)
 
   return (
@@ -58,8 +62,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  keepUserLogin: actions.keepUserLogin,
-  getDownloadLists: actions.getDownloadLists
+  getDownloadLists: actions.getDownloadLists,
+  keepUserLogin: homeActions.keepUserLogin,
+  toggleDevice: homeActions.toggleDevice
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Download)

@@ -1,8 +1,11 @@
-import React, {useEffect} from 'react'
-import {useParams} from 'react-router-dom'
-import {connect} from 'react-redux'
-import {actions} from './stores'
-import {Grid} from '@material-ui/core'
+import React, { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { useWatch } from 'utilities/useWatch'
+import { useRWD } from 'utilities/useRWD'
+import { connect } from 'react-redux'
+import { actions } from './stores'
+import { actions as homeActions } from '../Home/stores'
+import { Grid } from '@material-ui/core'
 
 /* Styles */
 import {
@@ -28,8 +31,14 @@ import {
 const Detail = ({
   articleDetail,
   articleList,
-  getDetail
+  getDetail,
+  keepUserLogin,
+  toggleDevice
 }) => {
+
+  useWatch(keepUserLogin)
+
+  useRWD(toggleDevice)
 
   const { id } = useParams()
 
@@ -110,7 +119,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  getDetail: actions.getDetail
+  getDetail: actions.getDetail,
+  keepUserLogin: homeActions.keepUserLogin,
+  toggleDevice: homeActions.toggleDevice
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Detail)
