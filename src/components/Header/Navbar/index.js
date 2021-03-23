@@ -25,6 +25,7 @@ const Navbar = ({
   isMouseEnter,
   user,
   userLogin,
+  isMobile,
   handleNavSearchFocus,
   handleNavSearchBlur,
   handleNavSearch,
@@ -37,43 +38,70 @@ const Navbar = ({
     event.keyCode === 13 && handleNavSearch(navSearchRef.current)
   }
 
-return (
-  <NavbarWrapper>
-    <div>
-      <NavItem to='/' exact>首頁</NavItem>
-      <NavItem to='/download'>下載</NavItem>
-      <SearchWrapper>
-        <NavSearch
-          onFocus={handleNavSearchFocus}
-          onBlur={handleNavSearchBlur}
-          ref={navSearchRef}
-          onKeyUp={checkKeyCode}
-        />
-        <SearchIcon
-          className={isFocused ? 'focused' : ''}
-        />
-        {isFocused || isMouseEnter ? (<SearchRecommend />) : null}
-      </SearchWrapper>
-    </div>
-    <div>
-      { user ? <UserAccount>{user.email}</UserAccount> : null }
-      {
-        userLogin
-          ? <NavItem to='/' onClick={handleUserLogout} $colorLight>登出</NavItem>
-          : <NavItem to='/login' $colorLight>登入</NavItem>
-      }
-      <NavButton to='/write'>
-        <PenIcon />寫文章
-      </NavButton>
-    </div>
-  </NavbarWrapper>
+  return (
+    isMobile
+      ? (
+          <NavbarWrapper>
+            <div>
+              <SearchWrapper>
+                <NavSearch
+                  onFocus={handleNavSearchFocus}
+                  onBlur={handleNavSearchBlur}
+                  ref={navSearchRef}
+                  onKeyUp={checkKeyCode}
+                />
+                <SearchIcon
+                  className={isFocused ? 'focused' : ''}
+                />
+                {isFocused || isMouseEnter ? (<SearchRecommend />) : null}
+              </SearchWrapper>
+            </div>
+            <div>
+              <NavButton to='/write'>
+                <PenIcon />
+              </NavButton>
+            </div>
+          </NavbarWrapper>
+      )
+      : (
+          <NavbarWrapper>
+            <div>
+              <NavItem to='/' exact>首頁</NavItem>
+              <NavItem to='/download'>下載</NavItem>
+              <SearchWrapper>
+                <NavSearch
+                  onFocus={handleNavSearchFocus}
+                  onBlur={handleNavSearchBlur}
+                  ref={navSearchRef}
+                  onKeyUp={checkKeyCode}
+                />
+                <SearchIcon
+                  className={isFocused ? 'focused' : ''}
+                />
+                {isFocused || isMouseEnter ? (<SearchRecommend />) : null}
+              </SearchWrapper>
+            </div>
+            <div>
+              { user ? <UserAccount>{user.email}</UserAccount> : null }
+              {
+                userLogin
+                  ? <NavItem to='/' onClick={handleUserLogout} $colorLight>登出</NavItem>
+                  : <NavItem to='/login' $colorLight>登入</NavItem>
+              }
+              <NavButton to='/write'>
+                <PenIcon />寫文章
+              </NavButton>
+            </div>
+          </NavbarWrapper>
+      )
 )}
 
 const mapStateToProps = state => ({
   isFocused: state.navbar.searchIsFocused,
   isMouseEnter: state.recommend.isMouseEnter,
   user: state.login.user,
-  userLogin: state.login.userLogin
+  userLogin: state.login.userLogin,
+  isMobile: state.home.isMobile
 })
 
 const mapDispatchToProps = {
