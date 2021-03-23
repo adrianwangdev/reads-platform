@@ -1,13 +1,16 @@
 import styled from 'styled-components'
-import { Container, Grid } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
 const LoginPage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 6.4rem);
   background: ${props => props.theme.colors.background.detail};
-  padding: 24rem 0;
-`
 
-const LoginWrapper = styled(Container)`
-  padding: 1.6rem 0;
+  @media (max-width: ${({theme}) => theme.device.tablet}) {
+    height: calc(100% - 5.6rem);
+  }
 `
 
 const GridWhiteBackground = styled(Grid)`
@@ -15,9 +18,13 @@ const GridWhiteBackground = styled(Grid)`
   flex-direction: column;
   align-items: center;
   padding: 6.4rem 0;
-  border-radius: .8rem;
+  border-radius: 2.4rem;
   background: ${props => props.theme.colors.basic.white};
   box-shadow: 0 .4rem 2.4rem rgba(0, 0, 0, .08);
+
+  @media (max-width: ${({theme}) => theme.device.mobile}) {
+    padding: 5.6rem 0;
+  }
   
   &.mr16 {
     margin-right: 1.6rem;
@@ -30,6 +37,10 @@ const Title = styled.h3`
   font-size: 3.2rem;
   font-weight: bold;
   color: ${props => props.theme.colors.primary.default};
+
+  @media (max-width: ${({theme}) => theme.device.mobile}) {
+    font-size: 2.8rem;
+  }
 `
 
 const Input = styled.input`
@@ -101,7 +112,6 @@ const ActionButton = styled.button`
 
 export {
   LoginPage,
-  LoginWrapper,
   GridWhiteBackground,
   Title,
   Input,

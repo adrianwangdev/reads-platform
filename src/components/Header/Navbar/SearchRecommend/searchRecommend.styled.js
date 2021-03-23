@@ -12,6 +12,10 @@ const RecommendWrapper = styled.div`
   background: ${({theme}) => theme.colors.basic.white};
   box-shadow: 0 0 .8rem rgba(0, 0, 0, .16);
   z-index: 1;
+
+  @media (max-width: ${({theme}) => theme.device.mobile}) {
+    width: 22rem;
+  }
 `
 
 const RecommendTitle = styled.div`

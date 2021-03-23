@@ -35,15 +35,15 @@ const NavItem = styled(NavLink)`
   &.active {
     color: ${({theme}) => theme.colors.primary.default};
   }
-
-  @media (max-width: ${({theme}) => theme.device.mobile}) {
-    padding-left: .8rem;
-    padding-right: .8rem;
-  }
 `
 
 const SearchWrapper = styled.div`
   margin-left: 1.2rem;
+
+  @media (max-width: ${({theme}) => theme.device.mobile}) {
+    margin-left: .2rem;
+  }
+
 
   & > svg {
     position: absolute;
@@ -77,13 +77,17 @@ const NavSearch = styled.input.attrs({
   background: ${({theme}) => theme.colors.background.search};
   outline: none;
   transition: all .4s;
-
+  
   &::placeholder {
     color: ${({theme}) => theme.colors.text.light};
   }
 
   &:focus {
     width: 22rem;
+    
+    @media (max-width: ${({theme}) => theme.device.mobile}) {
+      width: 16rem;
+    }
   }
 `
 
@@ -106,6 +110,10 @@ const NavButton = styled(NavLink)`
   background: ${({theme}) => theme.colors.primary.default};
   transition: all .2s;
   cursor: pointer;
+  
+  @media (max-width: ${({theme}) => theme.device.tablet}) {
+    padding-right: .8rem;
+  }
 
   &:hover {
     background: ${({theme}) => theme.colors.primary.hoverCTA};
