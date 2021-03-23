@@ -8,8 +8,8 @@ const RecommendWrapper = styled.div`
   border-radius: .8rem;
   width: 26rem;
   font-size: 1.4rem;
-  color: ${props => props.theme.colors.text.light};
-  background: ${props => props.theme.colors.basic.white};
+  color: ${({theme}) => theme.colors.text.light};
+  background: ${({theme}) => theme.colors.basic.white};
   box-shadow: 0 0 .8rem rgba(0, 0, 0, .16);
   z-index: 1;
 `
@@ -38,10 +38,10 @@ const RecommendSwitch = styled.span`
   }
 
   &:hover {
-    color: ${props => props.theme.colors.text.dark};
+    color: ${({theme}) => theme.colors.text.dark};
 
     > svg path {
-      fill: ${props => props.theme.colors.text.dark};
+      fill: ${({theme}) => theme.colors.text.dark};
     }
   }
 `
@@ -56,10 +56,17 @@ const RecommendItem = styled.a`
   margin-right: .8rem;
   margin-bottom: 1.2rem;
   padding: .4rem .6rem;
-  border: 1px solid ${props => props.theme.colors.border};
+  border: 1px solid ${({theme}) => theme.colors.border};
   border-radius: .4rem;
   font-size: 1.3rem;
-  color: ${props => props.theme.colors.text.light};
+  color: ${({theme}) => theme.colors.text.light};
+  transition: all .2s;
+  cursor: pointer;
+  
+  &:hover {
+    color: ${({theme}) => theme.colors.text.dark};
+    background: ${({theme}) => theme.colors.basic.light};
+  }
 `
 
 export {
