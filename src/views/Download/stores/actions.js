@@ -24,15 +24,3 @@ export const getDownloadLists = () => {
       })
   }
 }
-
-export const keepUserLogin = current => {
-  return (dispatch) => {
-    dispatch({
-      type: types.USER_LOGIN,
-      payload: {
-        user: current,
-        userLogin: true
-      }
-    })
-  }
-}

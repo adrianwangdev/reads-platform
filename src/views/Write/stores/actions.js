@@ -14,18 +14,6 @@ const clearInputText = () => ({
   }
 })
 
-export const keepUserLogin = current => {
-  return (dispatch) => {
-    dispatch({
-      type: types.USER_LOGIN,
-      payload: {
-        user: current,
-        userLogin: true
-      }
-    })
-  }
-}
-
 export const getMyPostList = () => {
   return (dispatch) => {
     db
@@ -52,7 +40,7 @@ export const handleChangeArticleTitle = element => {
   }
 }
 
-export const handleChangeArticleContent = (e, editor) => {
+export const handleChangeArticleContent = editor => {
   const articleContent = editor.getData()
   return {
     type: types.EDIT_ARTICLE_CONTENT,
