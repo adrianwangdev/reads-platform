@@ -19,4 +19,4 @@ const DownloadCard = ({
   </Grid>
 )
 
-export default DownloadCard;
+export default DownloadCard
