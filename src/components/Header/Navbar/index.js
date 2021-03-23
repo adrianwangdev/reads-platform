@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { connect } from 'react-redux'
 import { actions } from './stores'
 import { actions as loginActions } from 'views/Login/stores'
@@ -27,10 +27,17 @@ const Navbar = ({
   userLogin,
   handleNavSearchFocus,
   handleNavSearchBlur,
+  handleNavSearch,
   handleUserLogout
 }) => {
 
-  return (
+  const navSearchRef = useRef()
+
+  const checkKeyCode = event => {
+    event.keyCode === 13 && handleNavSearch(navSearchRef.current)
+  }
+
+return (
   <NavbarWrapper>
     <div>
       <NavItem to='/' exact>首頁</NavItem>
@@ -39,6 +46,8 @@ const Navbar = ({
         <NavSearch
           onFocus={handleNavSearchFocus}
           onBlur={handleNavSearchBlur}
+          ref={navSearchRef}
+          onKeyUp={checkKeyCode}
         />
         <SearchIcon
           className={isFocused ? 'focused' : ''}
@@ -70,6 +79,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   handleNavSearchFocus: actions.handleNavSearchFocus,
   handleNavSearchBlur: actions.handleNavSearchBlur,
+  handleNavSearch: actions.handleNavSearch,
   handleUserLogout: loginActions.handleUserLogout
 }
 

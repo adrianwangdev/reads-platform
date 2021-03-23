@@ -9,3 +9,8 @@ export const handleNavSearchBlur = () => ({
   type: types.SEARCH_BLUR,
   payload: false
 })
+
+export const handleNavSearch = element => ({
+  type: types.SAVE_SEARCHBAR_CONTENT,
+  payload: element.value
+})
