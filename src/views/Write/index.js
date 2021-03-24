@@ -73,6 +73,7 @@ const Write = ({
                   editor={ClassicEditor}
                   onChange={handleChangeArticleContent}
                   data={articleContent}
+                  config={{placeholder: '您可以輸入一些簡單的測試內容，然後點擊「發布文章」按鈕，接著您將會在下方「我的文章」區塊看到您所發布的文章。'}}
                 />
                 <SubmitPostButton
                   onClick={() => {
