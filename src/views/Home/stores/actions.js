@@ -1,5 +1,5 @@
 import * as types from './actionTypes'
-import axios from 'axios'
+import {db} from "services/firebase"
 
 const updateLists = data => ({
   type: types.GET_HOME_LISTS,
@@ -13,13 +13,18 @@ const updateLists = data => ({
 
 export const getHomeLists = () => {
   return (dispatch) => {
-    axios.get('/api/homeLists.json')
-      .then(response => {
-        const { data } = response.data
-        dispatch(updateLists(data))
+    db
+      .collection('trendingTopic')
+      .get()
+      .then(snapshot => {
+        let homeLists = {}
+        snapshot.forEach(doc => {
+          homeLists = doc.data()
+        })
+        dispatch(updateLists(homeLists))
       })
       .catch(error => {
-        console.warn(error)
+        console.log('Error getting documents', error)
       })
   }
 }

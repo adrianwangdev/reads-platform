@@ -1,5 +1,5 @@
 import * as types from './actionTypes'
-import axios from 'axios'
+import { db } from "services/firebase"
 
 const updateList = data => ({
   type: types.GET_RECOMMEND_LIST,
@@ -11,13 +11,18 @@ const updateList = data => ({
 
 export const getRecommendList = () => {
   return (dispatch) => {
-    axios.get('/api/recommendList.json')
-      .then(response => {
-        const data = response.data
-        dispatch(updateList(data.data))
+    db
+      .collection('searchRecommend')
+      .get()
+      .then(snapshot => {
+        let recommendList = {}
+        snapshot.forEach(doc => {
+          recommendList = doc.data().recommendList
+        })
+        dispatch(updateList(recommendList))
       })
       .catch(error => {
-        console.error(error)
+        console.log('Error getting documents', error)
       })
   }
 }
