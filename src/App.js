@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Header/>
         <Route path='/' component={Home} exact />
         <Route path='/download' component={Download} exact />
