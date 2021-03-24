@@ -40,7 +40,7 @@ export const handleChangeArticleTitle = element => {
   }
 }
 
-export const handleChangeArticleContent = editor => {
+export const handleChangeArticleContent = (event, editor) => {
   const articleContent = editor.getData()
   return {
     type: types.EDIT_ARTICLE_CONTENT,
