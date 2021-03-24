@@ -8,15 +8,15 @@ import {
 
 const Recommend = ({ recommendList }) => {
 
-  const renderRecommendList = () => recommendList.map(item => (
+  const renderRecommendList = list => list.map(item => (
     <RecommendItem key={item.id} category={`${item.category}`}>
       <span>{item.title}</span>
     </RecommendItem>
   ))
-  
+
   return (
     <RecommendWrapper>
-      {renderRecommendList()}
+      {renderRecommendList(recommendList)}
     </RecommendWrapper>
   )
 }

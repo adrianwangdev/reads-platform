@@ -18,8 +18,8 @@ const Writer = ({ writerList }) => {
     Math.floor(amount / 1000 * 10) / 10
   )
 
-  const renderWriterList = () => (
-    writerList.map((item, index) => (
+  const renderWriterList = list => (
+    list.map((item, index) => (
       <WriterItem key={index}>
         <WriterInfo>
           <WriterName>{item.name}</WriterName>
@@ -34,7 +34,7 @@ const Writer = ({ writerList }) => {
   return (
     <WriterWrapper>
       <WriterTitle>人氣作者</WriterTitle>
-      {renderWriterList()}
+      {renderWriterList(writerList)}
     </WriterWrapper>
   )
 }

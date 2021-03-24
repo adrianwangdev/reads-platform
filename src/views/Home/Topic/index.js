@@ -9,14 +9,14 @@ import {
 
 const Topic = ({ topicList }) => {
 
-  const renderTopicList = () => topicList.map(item =>
+  const renderTopicList = list => list.map(item =>
     <TopicItem key={item.id}>{item.title}</TopicItem>  
   )
 
   return (
     <TopicWrapper>
       <TopicTitle>熱門話題</TopicTitle>
-      { renderTopicList() }
+      { renderTopicList(topicList) }
     </TopicWrapper>
   )
 }
